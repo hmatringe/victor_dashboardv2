@@ -1,0 +1,9 @@
+<h1>Updates#show</h1>
+<p>Find me in app/views/updates/show.html.erb</p>
+
+<%= @update.update_week %>
+<br>
+<%= link_to "Update Update ;)", edit_project_update_path(@project, @update) %>
+
+<br>
+<%= link_to "Back to project", project_path(@project) %>
