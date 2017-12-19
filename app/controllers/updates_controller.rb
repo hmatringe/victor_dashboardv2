@@ -1,6 +1,14 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:new, :create, :edit, :update, :show]
+  before_action :set_project, only: [:new, :create, :edit, :update]
+  
+  def updates_of_the_week
+    # @last_week = "Semaine " + Time.now.last_week.strftime('%W') + " du " + Date.today.last_week.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.last_week.end_of_week.strftime('%Y-%m-%d')
+    # @this_week = "Semaine " + Time.now.strftime('%W') + " du " + Date.today.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.end_of_week.strftime('%Y-%m-%d')
+    # @updates = Update.where(update_week: LAST_WEEK)
+    @updates = Update.where(update_week: @last_week)
+  end
+
   def index
     @updates = Update.all
   end
@@ -56,6 +64,6 @@ class UpdatesController < ApplicationController
   end
 
   def update_params
-    params.require(:update).permit(:update_week, :progress_status, :risks, :next_steps, :project_id)
+    params.require(:update).permit(:update_week, :progress_status, :main_progress, :risks, :next_steps, :project_id)
   end
 end

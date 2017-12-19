@@ -1,9 +1,25 @@
 <h1>Updates#show</h1>
 <p>Find me in app/views/updates/show.html.erb</p>
 
-<%= @update.update_week %>
+<ul>
+	<li>
+		<%= @update.update_week %>
+	</li>
+	<li>
+		<%= @update.progress_status %>
+	</li>
+	<li>
+		<%= @update.main_progress %>
+	</li>
+	<li>
+		<%= @update.risks %>
+	</li>
+	<li>
+		<%= @update.next_steps %>
+	</li>
+</ul>
 <br>
-<%= link_to "Update Update ;)", edit_project_update_path(@project, @update) %>
+<%= link_to "Update Update ;)", edit_project_update_path(@update.project, @update) %>
 
 <br>
-<%= link_to "Back to project", project_path(@project) %>
+<%= link_to "Back to project", project_path(@update.project) %>

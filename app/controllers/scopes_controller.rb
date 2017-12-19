@@ -50,6 +50,6 @@ class ScopesController < ApplicationController
   end
 
   def scope_params
-    params.require(:scope).permit(:name, :ranking, :start_date, :end_date, :status)
+    params.require(:scope).permit(:name, :sort_weight, :start_date, :end_date, :status)
   end
 end

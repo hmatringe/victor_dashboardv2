@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219185414) do
+ActiveRecord::Schema.define(version: 20171219204212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171219185414) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "ranking"
+    t.integer "sort_weight"
   end
 
   create_table "updates", force: :cascade do |t|
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171219185414) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "main_progress"
     t.index ["project_id"], name: "index_updates_on_project_id"
   end
 

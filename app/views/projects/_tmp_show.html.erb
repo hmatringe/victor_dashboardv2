@@ -1,0 +1,39 @@
+<h1>Projects#show</h1>
+<p>Find me in app/views/projects/show.html.erb</p>
+<ul>
+	<li>
+		<%= @project.scope.name %>
+	</li>
+	<li>
+		<%= @project.title %>
+	</li>
+	<li>
+		<%= @project.owner.full_name %>
+	</li>
+	<li>
+		<%= @project.description %>
+	</li>
+	<li>
+		<%= @project.start_date %>
+	</li>
+	<li>
+		<%= @project.end_date_forecast %>
+	</li>
+	<li>
+		<%= @project.end_date_actual if @project.end_date_actual %>
+	</li>
+</ul>
+<br>
+<ul>
+<% if @project.updates %>
+	<% @project.updates.each do |i| %>
+		<li>
+			<%= link_to "Update #{i.id} de la #{i.update_week}", project_update_path(@project, i) %>
+		</li>
+	<% end %>
+<% end %>
+</ul>
+<br>
+<%= link_to "Update project", edit_project_path(@project) %>
+<br>
+<%= link_to "Create Update", new_project_update_path(@project) %>

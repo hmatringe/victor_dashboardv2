@@ -3,8 +3,8 @@
 	<%= i.input :description %>
 	<%= i.input :start_date %>
 	<%= i.input :end_date_forecast %>
-	<%= i.input :end_date_actual %>
-	<%= i.association :owner %>
+	<%= i.input :end_date_actual, include_blank: true %>
+	<%= i.association :owner, label_method: :full_name_with_email %>
 	<%= i.association :scope %>
 	<%= i.submit "Submit" %>
 <% end %>

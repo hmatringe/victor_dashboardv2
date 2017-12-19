@@ -1,6 +1,23 @@
 <h1>Scopes#show</h1>
 <p>Find me in app/views/scopes/show.html.erb</p>
 
-<%= @scope.name %>
+<ul>
+	<li>
+		<%= @scope.name %>
+	</li>
+	<li>
+		<%= @scope.start_date %>
+	</li>
+	<li>
+		<%= @scope.end_date %>
+	</li>
+	<li>
+		<%= @scope.status %>
+	</li>
+	<li>
+		<%= @scope.sort_weight %>
+	</li>
+</ul>
+
 <br>
 <%= link_to "Update scope", edit_scope_path(@scope) %>

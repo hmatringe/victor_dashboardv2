@@ -1,18 +1,2 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
-
-<%= @project.title %>
-<br>
-<ul>
-<% if @project.updates %>
-	<% @project.updates.each do |i| %>
-		<li>
-			<%= link_to "Update #{i.id} de la #{i.update_week}", project_update_path(@project, i) %>
-		</li>
-	<% end %>
-<% end %>
-</ul>
-<br>
-<%= link_to "Update project", edit_project_path(@project) %>
-<br>
-<%= link_to "Create Update", new_project_update_path(@project) %>
+<%#= render partial: "tmp_show", locals: { project: @project} %>
+<%= render partial: "project_details", locals: { project: @project, scope: @project.scope} %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
   resources :projects do
-    resources :updates
+    resources :updates, only: [:new, :create, :edit, :update, :destroy]
   end
+  resources :updates, only: [:index, :show]
+  get "updates_of_the_week", to: "updates#updates_of_the_week"
   resources :scopes
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
