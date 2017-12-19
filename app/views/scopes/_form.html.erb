@@ -1,0 +1,8 @@
+<%= simple_form_for	@scope do |i| %>
+	<%= i.input :name %>
+	<%= i.input :ranking %>
+	<%= i.input :start_date %>
+	<%= i.input :end_date %>
+	<%= i.input :status, collection: %w( status1 status2 status3 ) %>
+	<%= i.submit "Submit" %>
+<% end %>

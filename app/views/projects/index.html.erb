@@ -1,0 +1,13 @@
+<h1>Projects#index</h1>
+<p>Find me in app/views/projects/index.html.erb</p>
+
+Total: <%= @projects.size %> projects
+<ul>
+	<% @projects.each do |i| %>
+		<li>
+			<%= link_to project_path(i) do %>
+				<%= "project #{i.id} - updates #{i.updates.length if i.updates}" %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>

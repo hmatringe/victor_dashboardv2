@@ -1,0 +1,10 @@
+<%= simple_form_for	@project do |i| %>
+	<%= i.input :title %>
+	<%= i.input :description %>
+	<%= i.input :start_date %>
+	<%= i.input :end_date_forecast %>
+	<%= i.input :end_date_actual %>
+	<%= i.association :owner %>
+	<%= i.association :scope %>
+	<%= i.submit "Submit" %>
+<% end %>
