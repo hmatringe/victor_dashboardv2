@@ -1,5 +1,6 @@
 {
   "name": "angle",
+  "version": "1.3.2",
   "private": true,
   "scripts": {
     "install": "napa",
@@ -84,6 +85,5 @@
     "weather-icons": "github:erikflowers/weather-icons",
     "whirl": "github:jh3y/whirl",
     "x-editable": "1.5.1"
-  },
-  "version": "1.3.2"
+  }
 }
