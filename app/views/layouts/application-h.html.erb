@@ -10,7 +10,9 @@
    <!-- =============== VENDOR STYLES ===============-->
    <%= stylesheet_link_tag 'base' %>
    <!-- =============== VIEW VENDOR STYLES ===============-->
-   <%= stylesheet_link_tag params[:controller] %>
+   <% unless controller_name == "sessions" || "projects" %>
+      <%= stylesheet_link_tag params[:controller] %>
+   <% end %>
    <!-- =============== APP STYLES ===============-->
    <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
    <%= csrf_meta_tags %>
@@ -29,6 +31,7 @@
       </aside>
       <!-- Main section-->
       <section>
+         <%= render partial: "layouts/partials/flashes" %>
          <!-- Page content-->
          <div class="content-wrapper">
             <%= yield %>
@@ -42,7 +45,9 @@
    <!-- =============== VENDOR SCRIPTS ===============-->
    <%= javascript_include_tag 'base' %>
    <!-- =============== VIEW VENDOR SCRIPTS ===============-->
-   <%= javascript_include_tag params[:controller] %>
+   <% unless controller_name == "sessions" || "projects" %>
+      <%= javascript_include_tag params[:controller] %>
+   <% end %>
    <!-- =============== APP SCRIPTS ===============-->
    <%= javascript_include_tag 'application' %>
 </body>
