@@ -24,6 +24,8 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
 gem "bower-rails", "~> 0.9.2"
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 
 group :development, :test do
   gem 'pry-byebug'

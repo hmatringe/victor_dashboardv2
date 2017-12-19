@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  start_date: 2017-12-19
+  end_date_forecast: 2017-12-19
+  end_date_actual: 2017-12-19
+  user: one
+  scope: one
+
+two:
+  title: MyString
+  description: MyText
+  start_date: 2017-12-19
+  end_date_forecast: 2017-12-19
+  end_date_actual: 2017-12-19
+  user: two
+  scope: two

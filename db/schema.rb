@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219132047) do
+ActiveRecord::Schema.define(version: 20171219141613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "scope_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scope_id"], name: "index_participants_on_scope_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date_forecast"
+    t.date "end_date_actual"
+    t.bigint "user_id"
+    t.bigint "scope_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scope_id"], name: "index_projects_on_scope_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "scopes", force: :cascade do |t|
+    t.string "name"
+    t.string "ranking"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "updates", force: :cascade do |t|
+    t.string "update_week"
+    t.string "progress_status"
+    t.text "risks"
+    t.text "next_steps"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_updates_on_project_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +72,17 @@ ActiveRecord::Schema.define(version: 20171219132047) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "role", default: "restricted"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "participants", "scopes"
+  add_foreign_key "participants", "users"
+  add_foreign_key "projects", "scopes"
+  add_foreign_key "projects", "users"
+  add_foreign_key "updates", "projects"
 end
