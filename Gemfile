@@ -6,15 +6,16 @@ git_source(:github) do |repo_name|
 end
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.0'
 
 # HEROKU doesn't support sqlite3.
 # Comment this gem
-gem 'sqlite3'
+# gem 'sqlite3'
 # and uncomment the following
-# gem 'pg'
-# gem 'thin'
+gem 'pg'
+gem 'thin'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
