@@ -25,6 +25,8 @@ gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
 gem "bower-rails", "~> 0.9.2"
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 
 group :development, :test do
