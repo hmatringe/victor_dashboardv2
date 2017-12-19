@@ -31,7 +31,8 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'capybara', '~> 2.13.0'
+  gem 'capybara'
+  gem 'nokogiri', '>= 1.8.1'
   gem 'selenium-webdriver'
 end
 
