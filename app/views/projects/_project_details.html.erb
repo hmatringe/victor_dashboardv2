@@ -6,7 +6,7 @@
    </small>
 </h3>
 <div class="row">
-   <div class="col-lg-8">
+   <div class="col-lg-offset-2 col-lg-8">
       <!-- Main panel-->
       <div class="panel b">
          <div class="panel-heading">
@@ -47,10 +47,11 @@
                         <strong>Owner</strong>
                      </td>
                      <td>
-                        <a href="" data-toggle="tooltip" data-title="<%= project.owner.first_name + " " + project.owner.last_name %>">
-                           <img src="<%= image_path('angle/user/03.jpg') %>" alt="project member" class="img-circle thumb24" />
-                        </a>
-                        <%= project.owner.full_name_with_email %>
+                        <!-- <a href="" data-toggle="tooltip" data-title="<%= project.owner.full_name %>">
+                           <img src="<%#= image_path('angle/user/03.jpg') %>" alt="project member" class="img-circle thumb24" />
+                        </a> -->
+                        <%= project.owner.full_name %>
+                        <%= mail_to project.owner.email %>
                      </td>
                   </tr>
             </tbody>
@@ -60,7 +61,7 @@
             <h4>Description</h4>
             <p><%= project.description %></p>
             <p class="text-right">
-               <button type="button" class="btn btn-default">View all documents</button>
+               <%= link_to "Edit", edit_project_path, class: "btn btn-default btn-sm" %>
             </p>
          </div>
          <!-- <div class="panel-body">
@@ -102,7 +103,7 @@
             <div class="panel-title">Updates</div>
          </div>
          
-         <div data-height="180" data-scrollable="" class="list-group">
+         <div data-height="100%" data-scrollable="" class="list-group">
             
             <% project.updates.each do |update|%>
                <%= render partial: "project_details_updates_list_item", locals: { update: update} %>
