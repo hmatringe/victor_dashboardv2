@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  root to: 'projects#index'
   resources :projects do
     resources :updates, only: [:new, :create, :edit, :update, :destroy]
   end
@@ -10,8 +11,6 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
-  # defaults to dashboard
-  root :to => redirect('/dashboard/dashboard_v1')
 
   # view routes
   get '/widgets' => 'widgets#index'
