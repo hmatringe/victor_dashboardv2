@@ -4,7 +4,8 @@
 		 "Semaine " + Time.now.strftime('%W') + " du " + Date.today.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.end_of_week.strftime('%Y-%m-%d'),
 		 "Semaine " + Time.now.next_week.strftime('%W') + " du " + Date.today.next_week.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.next_week.end_of_week.strftime('%Y-%m-%d') -->
 		
-	<%= i.input :progress_status, collection: ["non débuté", "en cours", "terminé"] %>
+	<%= i.input :main_progress %>
+	<%= i.input :progress_status, collection: %w(green yellow red) %>
 	<%= i.input :risks %>
 	<%= i.input :next_steps %>
 	<%#= i.association :project %>

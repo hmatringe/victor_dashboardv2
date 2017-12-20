@@ -2,10 +2,20 @@
    <div class="panel b">
       <div class="panel-heading">
          <div class="pull-right">
-            <div class="label label-info"><%= project.updates.nil? ? project.updates.last.progress_status : "en cours" %></div>
+            <% if project.updates.where(update_week: @this_week).size != 0 %>
+               <div class="label label-info"><%= project.updates.last.progress_status %></div>
+            <% else %>
+               <div class="label label-danger">missing weekly update</div>
+            <% end %>
          </div>
          <h4 class="m0"><%= project.title %></h4>
-         <small class="text-muted">Last update: TODODate</small>
+         <small class="text-muted">
+            Frame: <%= scope.name %>
+            <br>
+            <%= scope.start_date %>
+            |
+            <%= scope.end_date %>
+         </small>
       </div>
       <div class="panel-body">
          <div class="table-grid table-grid-align-middle">
@@ -30,18 +40,21 @@
                </td>
                <td><%= project.start_date %></td>
             </tr>
-            <tr>
-               <td>
-                  <strong>End date - forecast</strong>
-               </td>
-               <td><%= project.end_date_forecast %></td>
-            </tr>
-            <tr>
-               <td>
-                  <strong>End date - actual</strong>
-               </td>
-               <td><%= project.end_date_actual %></td>
-            </tr>
+            <% if project.end_date_actual %>
+               <tr>
+                  <td>
+                     <strong>End date <br> (actual)</strong>
+                  </td>
+                  <td><%= project.end_date_actual %></td>
+               </tr>
+            <% else %>
+               <tr>
+                  <td>
+                     <strong>End date <br> (forecast)</strong>
+                  </td>
+                  <td><%= project.end_date_forecast %></td>
+               </tr>
+            <% end %>
             <tr>
                <td>
                   <strong>Members</strong>
@@ -66,17 +79,35 @@
                   </a>
                </td>
             </tr>
+            <tr>
+               <td>
+                  <strong>Lastest update</strong>
+               </td>
+               <td>
+                  <% if project.updates.size > 0 %>
+                     <span class="circle circle-<%= project.updates.last.progress_status_color %> circle-lg text-left" style="margin:1px;"></span>
+                     <small> <%= project.updates.last.update_week %></small>
+                  <% else %>
+                     <small>
+                     </small>
+                     No update was created
+                  <% end %>
+                     
+                  </a>
+               </td>
+            </tr>
          </tbody>
       </table>
       <div class="panel-footer text-center">
          <%= link_to project_path(project) do %>
-            <button type="button" class="btn btn-default">Manage project</button>
+            <button type="button" class="btn btn-default">Details</button>
          <% end %>
-         <% if current_user.admin %>
+         <%# if current_user.admin %>
             <%= link_to edit_project_path(project) do %>
-               <button type="button" class="btn btn-default">Edit project</button>
+               <button type="button" class="btn btn-default">Edit</button>
             <% end %>
-         <% end %>
+         <%# end %>
+         <%= link_to "Create Update", new_project_update_path(project, Update.new), class: "btn btn-default" %>
       </div>
    </div>
 </div>

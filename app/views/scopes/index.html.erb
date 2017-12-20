@@ -1,16 +1,12 @@
-<h1>Scopes#index</h1>
-<p>Find me in app/views/scopes/index.html.erb</p>
+<%#= render partial: "tmp_index" %>
 
-Total: <%= @scopes.length %> scopes
-<ul>
-	<% @scopes.each do |sc| %>
-		<li>
-			<%= link_to "#{sc.name} - scope id:#{sc.id}", scope_path(sc) %>
-		</li>
-	<% end %>
-</ul>
-<br>
-<%= link_to "Create Scope", new_scope_path %>
-
-
-
+<% @scopes.each do |scope| %>
+		
+		<h3>
+			<%= scope.name  %>
+		</h3>
+		<% scope.projects.each do |p| %>
+ 			<%= render partial: "projects/project_card", locals: { project: p, scope: p.scope} %>
+ 		<% end %>
+		
+<% end %>

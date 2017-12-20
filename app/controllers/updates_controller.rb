@@ -3,10 +3,12 @@ class UpdatesController < ApplicationController
   before_action :set_project, only: [:new, :create, :edit, :update]
   
   def updates_of_the_week
-    # @last_week = "Semaine " + Time.now.last_week.strftime('%W') + " du " + Date.today.last_week.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.last_week.end_of_week.strftime('%Y-%m-%d')
-    # @this_week = "Semaine " + Time.now.strftime('%W') + " du " + Date.today.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.end_of_week.strftime('%Y-%m-%d')
-    # @updates = Update.where(update_week: LAST_WEEK)
+    @updates = Update.where(update_week: @this_week)
+    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }
+  end
+  def updates_of_last_week
     @updates = Update.where(update_week: @last_week)
+    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }
   end
 
   def index
@@ -30,6 +32,7 @@ class UpdatesController < ApplicationController
         # format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
+        raise
         # format.json { render json: @update.errors, status: :unprocessable_entity }
       end
     end

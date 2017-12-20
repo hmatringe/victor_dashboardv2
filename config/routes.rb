@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :updates, only: [:index, :show]
   get "updates_of_the_week", to: "updates#updates_of_the_week"
+  get "updates_of_last_week", to: "updates#updates_of_last_week"
   resources :scopes
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
