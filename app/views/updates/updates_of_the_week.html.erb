@@ -1,0 +1,47 @@
+<h1>Updates#index</h1>
+<p>Find me in app/views/updates/index.html.erb</p>
+
+
+Total: <%= @updates.size %> updates
+<ul>
+	<% @updates.each do |update| %>
+		<li>
+			<%= link_to update_path update do %>
+				<%= "update #{update.update_week} - progress: #{update.progress_status} - project: #{update.project.title}" %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  Launch demo modal
+	</button>
+
+<%= content_for	:modals do %>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	style="
+	padding-top: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1100; 
+	">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>One fine body&hellip;</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+<% end %>

@@ -14,19 +14,20 @@ class Project < ApplicationRecord
 			0
 		else
 			completed = Date.today.mjd - start_date.mjd
-			total = [end_date_forecast, end_date_actual].max.mjd - start_date.mjd
+			total = [end_date_forecast].max.mjd - start_date.mjd
 			(completed.to_f / total * 100).round(0)
 		end
   end
 
   def start_date_anterior_or_equal_to_end_date_actual
-    if end_date_actual < start_date
-      errors.add :end_date_actual, "must be after start date"
+    if end_date_actual && end_date_actual < start_date
+      errors.add :end_date_actual, "must be anterior or equal to start date"
     end
   end
+  
   def start_date_anterior_or_equal_to_end_date_forecast
     if end_date_forecast < start_date
-      errors.add :end_date_forecast, "must be after start date"
+      errors.add :end_date_forecast, "must be anterior or equal to start date"
     end
   end
 end
