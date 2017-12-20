@@ -16,7 +16,7 @@
                   </div>
                   <!-- Name and Job-->
                   <div class="user-block-info">
-                     <span class="user-block-name">Hello, Mike</span>
+                     <span class="user-block-name">Hello, Mike</span>   
                      <span class="user-block-role">Designer</span>
                   </div>
                </div>
@@ -25,7 +25,10 @@
          <!-- END user info-->
          <!-- Iterates over all sidebar items-->
          <li class="nav-heading">
+               <% if current_user %>
                <span>Hi, <%= current_user.first_name %> </span>
+               <br>
+               <% end %>
             </li>
 
 

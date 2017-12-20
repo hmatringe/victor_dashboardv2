@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+	<p>You are already logged in <%= current_user.first_name %> :) </p>
+<% else %>
+	<p>You must be logged in to access this dashboard</p>
+	<%= link_to "Sign in", new_user_session_path, class: "btn btn-default btn-sm" %>
+<% end %>
+

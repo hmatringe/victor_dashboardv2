@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root to: 'projects#index'
+  root to: 'projects#home'
   resources :projects do
     resources :updates, only: [:new, :create, :edit, :update, :destroy]
   end
