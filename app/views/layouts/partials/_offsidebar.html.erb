@@ -14,6 +14,8 @@
             </a>
          </li>
       </ul>
+      <!-- Chosen theme-->
+      <label data-load-chosen-css="<%= asset_path('angle/themes/theme-f.css') %>">
       <!-- Tab panes-->
       <div class="tab-content">
          <div id="app-settings" role="tabpanel" class="tab-pane fade in active">
@@ -90,7 +92,7 @@
                   </div>
                   <div class="col mb">
                      <div class="setting-color">
-                        <label data-load-css="<%= asset_path('angle/themes/theme-f.css') %>">
+                        <label id="chosen-theme" data-load-css="<%= asset_path('angle/themes/theme-f.css') %>">
                            <input type="radio" name="setting-theme" />
                            <span class="icon-check"></span>
                            <span class="split">

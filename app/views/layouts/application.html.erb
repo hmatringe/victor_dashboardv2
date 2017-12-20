@@ -4,9 +4,9 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <meta name="description" content="Bootstrap Admin App + Ruby on Rails">
-   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-   <title>Angle - Bootstrap Admin Template</title>
+   <meta name="description" content="Project Dashboard">
+   <meta name="keywords" content="">
+   <title>Project Dashboard</title>
    <!-- =============== VENDOR STYLES ===============-->
    <%= stylesheet_link_tag 'base' %>
    <!-- =============== VIEW VENDOR STYLES ===============-->
@@ -22,12 +22,13 @@
    <div class="wrapper">
       <!-- top navbar-->
       <header class="topnavbar-wrapper">
-         <%= render partial: "layouts/partials/topnavbar" %>
+         <%#= render partial: "layouts/partials/topnavbar" %>
+         <%= render partial: "layouts/partials/topnavbar_custom" %>
       </header>
       <!-- sidebar-->
       <aside class="aside">
-         <%= render partial: "layouts/partials/sidebar_custom" %>
          <%#= render partial: "layouts/partials/sidebar" %>
+         <%= render partial: "layouts/partials/sidebar_custom" %>
       </aside>
       <!-- offsidebar-->
       <aside class="offsidebar hide">
@@ -42,9 +43,9 @@
          </div>
       </section>
       <!-- Page footer-->
-      <footer>
-         <%= render partial: "layouts/partials/footer" %>
-      </footer>
+      <!-- <footer> -->
+         <%#= render partial: "layouts/partials/footer" %>
+      <!-- </footer> -->
    </div>
    <!-- =============== VENDOR SCRIPTS ===============-->
    <%= javascript_include_tag 'base' %>

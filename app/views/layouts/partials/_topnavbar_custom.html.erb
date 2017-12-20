@@ -1,0 +1,28 @@
+<!-- START Top Navbar-->
+<nav role="navigation" class="navbar topnavbar">
+   <!-- START navbar header-->
+   <div class="navbar-header">
+      <a href="#/" class="navbar-brand">
+         <div class="brand-logo">
+            <img src="<%= image_path('angle/logo.png') %>" alt="App Logo" class="img-responsive" />
+         </div>
+         <div class="brand-logo-collapsed">
+            <img src="<%= image_path('angle/logo.png') %>" alt="App Logo" class="img-responsive" />
+         </div>
+      </a>
+   </div>
+   <!-- END navbar header-->
+   <!-- START Nav wrapper-->
+   <%= render partial: "layouts/partials/topnavbar_nav_wrapper" %>
+   <!-- END Nav wrapper-->
+   <!-- START Search form-->
+   <form role="search" action="search.html" class="navbar-form">
+      <div class="form-group has-feedback">
+         <input type="text" placeholder="Type and hit enter ..." class="form-control" />
+         <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+      </div>
+      <button type="submit" class="hidden btn btn-default">Submit</button>
+   </form>
+   <!-- END Search form-->
+</nav>
+<!-- END Top Navbar-->
