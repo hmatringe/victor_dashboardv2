@@ -56,6 +56,10 @@ a.label {
 .label-info {
   @include label-variant($label-info-bg);
 }
+// custom HM
+.label-grey {
+  @include label-variant($label-grey-bg);
+}
 
 .label-warning {
   @include label-variant($label-warning-bg);

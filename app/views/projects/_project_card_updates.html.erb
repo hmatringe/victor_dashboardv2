@@ -1,0 +1,20 @@
+<div class="media-box-body clearfix">
+  <strong class="media-box-heading text-primary">
+     <span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span>
+     <%= update.update_week %>
+   </strong>
+  <small class="pull-right">last updated at <%= update.updated_at.strftime('%H:%M, %A %e %b %Y') %></small>
+  <br><br>
+  <p class="mb-sm">
+     <strong>main progress</strong><br>
+     <small><%= update.main_progress %></small>
+  </p>
+  <p class="mb-sm">
+     <strong>risks</strong><br>
+     <small><%= update.risks %></small>
+  </p>
+  <p class="mb-sm">
+     <strong>next steps</strong><br>
+     <small><%= update.next_steps %></small>
+  </p>
+</div>

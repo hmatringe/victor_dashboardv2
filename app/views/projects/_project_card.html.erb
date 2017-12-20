@@ -3,9 +3,9 @@
       <div class="panel-heading">
          <div class="pull-right">
             <% if project.updates.where(update_week: @this_week).size != 0 %>
-               <div class="label label-info"><%= project.updates.last.progress_status %></div>
+               <div class="label label-<%= project.updates.last.progress_status_color %>">status</div>
             <% else %>
-               <div class="label label-danger">missing weekly update</div>
+               <div class="label label-grey">missing weekly update</div>
             <% end %>
          </div>
          <h4 class="m0"><%= project.title %></h4>
@@ -23,7 +23,7 @@
                <div class="visible-xs visible-sm text-bold text-muted text-right"><%= project.completion %>%</div>
                <div data-toggle="tooltip" data-title="Progression">
                   <div class="progress progress-xs m0">
-                     <div style="width:<%= project.completion %>%" class="progress-bar progress-bar-warning"><%= project.completion %>%</div>
+                     <div style="width:<%= project.completion %>%" class="progress-bar progress-bar-<%= project.updates.size > 0 ? project.updates.last.progress_status_color : "primary" %>"><%= project.completion %>%</div>
                   </div>
                </div>
             </div>
@@ -36,60 +36,14 @@
          <tbody>
             <tr>
                <td>
-                  <strong>Start date</strong>
-               </td>
-               <td><%= project.start_date %></td>
-            </tr>
-            <% if project.end_date_actual %>
-               <tr>
-                  <td>
-                     <strong>End date <br> (actual)</strong>
-                  </td>
-                  <td><%= project.end_date_actual %></td>
-               </tr>
-            <% else %>
-               <tr>
-                  <td>
-                     <strong>End date <br> (forecast)</strong>
-                  </td>
-                  <td><%= project.end_date_forecast %></td>
-               </tr>
-            <% end %>
-            <tr>
-               <td>
-                  <strong>Members</strong>
-               </td>
-               <td>
-                  <% project.scope.participants.size.times do %>
-                  <a href="#" class="inline">
-                     <img src="<%= image_path('angle/user/0' + rand(1..6).to_s + '.jpg') %>" alt="project member" class="img-circle thumb24" />
-                  </a>
-                  <% end %>
-                     <strong><%= project.scope.participants.size > 5 ? "+" + (project.scope.participants.size - 5).to_s  : "" %></strong>
-                  </a>
-               </td>
-            </tr>
-            <tr>
-               <td>
-                  <strong>Owner</strong>
-               </td>
-               <td>
-                  <a href="" data-toggle="tooltip" data-title="<%= project.owner.first_name + " " + project.owner.last_name %>">
-                     <img src="<%= image_path('angle/user/03.jpg') %>" alt="project member" class="img-circle thumb24" />
-                  </a>
-               </td>
-            </tr>
-            <tr>
-               <td>
-                  <strong>Lastest update</strong>
+                  <div class="pull-left">
+                     <img src="<%= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
+                  </div>
                </td>
                <td>
                   <% if project.updates.size > 0 %>
-                     <span class="circle circle-<%= project.updates.last.progress_status_color %> circle-lg text-left" style="margin:1px;"></span>
-                     <small> <%= project.updates.last.update_week %></small>
+                     <%= render partial: "projects/project_card_updates", locals: {update: project.updates.last} %>
                   <% else %>
-                     <small>
-                     </small>
                      No update was created
                   <% end %>
                      

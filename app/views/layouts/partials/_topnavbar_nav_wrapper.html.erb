@@ -12,7 +12,6 @@
          </a> -->
       <!-- </li> -->
       
-      
       <li class="visible-xs <%= 'active' if controller?('projects') && action?('index') %>">
          <a href="/projects" title="Projects">
             <em class="icon-speedometer"></em>
@@ -52,6 +51,9 @@
    </ul>
    <!-- END Left navbar-->
    <!-- START Right Navbar-->
+      <ul class="nav navbar-nav navbar-right">
+      <%= render partial: "layouts/partials/navbar_auth" %>
       <%#= render partial: "layouts/partials/topnavbar_nav_wrapper_right" %>
+      </ul>
    <!-- END Right Navbar-->
 </div>
