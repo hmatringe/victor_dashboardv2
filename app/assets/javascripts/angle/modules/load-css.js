@@ -1,5 +1,6 @@
 // LOAD CUSTOM CSS
 // ----------------------------------- 
+// original_________________________________________
 
 (function(window, document, $, undefined){
 
@@ -37,6 +38,7 @@
       'rel':  'stylesheet',
       'href': uri
     }));
+    console.log(linkId);
 
     if( oldLink.length ) {
       oldLink.remove();
@@ -47,3 +49,12 @@
 
 
 })(window, document, window.jQuery);
+
+
+
+// our choice
+(function($) {
+   $(document).ready(function(){
+      $('#chosen-theme').click()    
+   });
+})(jQuery);

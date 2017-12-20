@@ -1,0 +1,10 @@
+// Phones portrait and smaller */
+
+.hidden-except-xs {
+	opacity: 1;
+}
+@media (max-width: $mq-mobile) {
+	.hidden-except-xs {
+		opacity: 0;
+	}
+}
