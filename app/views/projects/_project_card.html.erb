@@ -3,9 +3,9 @@
       <div class="panel-heading">
          <div class="pull-right">
             <% if project.updates.where(update_week: @this_week).size != 0 %>
-               <div class="label label-<%= project.updates.last.progress_status_color %>">status</div>
+               <div class="label label-<%= project.updates.last.progress_status_color %>">up to date</div>
             <% else %>
-               <div class="label label-grey">missing weekly update</div>
+               <div class="label label-grey">no weekly update</div>
             <% end %>
          </div>
          <h4 class="m0"><%= project.title %></h4>
@@ -17,6 +17,28 @@
             <%= scope.end_date %>
          </small>
       </div>
+      
+      <table class="table">
+         <tbody>
+            <tr>
+               <!-- <td>
+                  <div class="pull-left">
+                     <img src="<%#= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
+                  </div>
+               </td> -->
+               <td>
+                  <% if project.updates.size > 0 %>
+                     <%= render partial: "projects/project_card_updates", locals: {update: project.updates.last} %>
+                  <% else %>
+                     No updates were created
+                  <% end %>
+                     
+                  </a>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+
       <div class="panel-body">
          <div class="table-grid table-grid-align-middle">
             <div class="col">
@@ -32,26 +54,7 @@
             </div>
          </div>
       </div>
-      <table class="table">
-         <tbody>
-            <tr>
-               <td>
-                  <div class="pull-left">
-                     <img src="<%= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
-                  </div>
-               </td>
-               <td>
-                  <% if project.updates.size > 0 %>
-                     <%= render partial: "projects/project_card_updates", locals: {update: project.updates.last} %>
-                  <% else %>
-                     No update was created
-                  <% end %>
-                     
-                  </a>
-               </td>
-            </tr>
-         </tbody>
-      </table>
+
       <div class="panel-footer text-center">
          <%= link_to project_path(project) do %>
             <button type="button" class="btn btn-default">Details</button>
