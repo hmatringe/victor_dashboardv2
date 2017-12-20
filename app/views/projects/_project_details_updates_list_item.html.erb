@@ -1,23 +1,31 @@
 <a href="#" class="list-group-item">
 	<div class="media-box">
-	   <div class="pull-left">
-	      <img src="<%= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
-	   </div>
+	   <!-- <div class="pull-left">
+	      <img src="<%#= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
+	   </div> -->
 	   <div class="media-box-body clearfix">
-	      <small class="pull-right">last updated at <%= update.updated_at.strftime('%H:%M, %A %e %b %Y') %></small>
-	      <strong class="media-box-heading text-primary">
-	         <span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span><%= update.update_week %></strong>
+	      <small class="pull-right">
+	      	last updated at <%= update.updated_at.strftime('%H:%M, %A %e %b %Y') %>
+      	</small>
+	      <strong class="media-box-heading text-secondary">
+	         <span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span>
+	         <strong>Main Progress:</strong>
+	       </strong>
 	      <p class="mb-sm">
-	         <strong>main progress:</strong>
-	         <small><%= update.main_progress %></small>
+	         <%= update.main_progress %>
 	      </p>
 	      <p class="mb-sm">
-	         <strong>risks:</strong>
-	         <small><%= update.risks %></small>
+       		<strong>Risks:</strong>
+       		<br>
+	        <%= update.risks %>
 	      </p>
 	      <p class="mb-sm">
-	         <strong>next steps:</strong>
-	         <small><%= update.next_steps %></small>
+	      	<strong>Next Steps:</strong>
+	      	<br>
+	        <%= update.next_steps %>
+	      </p>
+	      <p class="mb-sm">
+	         <%= update.update_week %>
 	      </p>
 	   </div>
 	</div>

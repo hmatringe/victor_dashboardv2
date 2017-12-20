@@ -18,6 +18,8 @@
          </small>
       </div>
       
+
+      <!-- START higher update -->
       <table class="table">
          <tbody>
             <tr>
@@ -28,24 +30,24 @@
                </td> -->
                <td>
                   <% if project.updates.size > 0 %>
-                     <%= render partial: "projects/project_card_updates", locals: {update: project.updates.last} %>
+                     <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>
                   <% else %>
                      No updates were created
                   <% end %>
-                     
-                  </a>
                </td>
             </tr>
          </tbody>
       </table>
-
+      <!-- END higher update -->
+      
+      <!-- START Progress Bar -->
       <div class="panel-body">
          <div class="table-grid table-grid-align-middle">
             <div class="col">
                <div class="visible-xs visible-sm text-bold text-muted text-right"><%= project.completion %>%</div>
                <div data-toggle="tooltip" data-title="Progression">
                   <div class="progress progress-xs m0">
-                     <div style="width:<%= project.completion %>%" class="progress-bar progress-bar-<%= project.updates.size > 0 ? project.updates.last.progress_status_color : "primary" %>"><%= project.completion %>%</div>
+                     <div style="width:<%= project.completion %>%" class="progress-bar progress-bar-primary"><%= project.completion %>%</div>
                   </div>
                </div>
             </div>
@@ -54,6 +56,21 @@
             </div>
          </div>
       </div>
+      <!-- END Progress Bar -->
+      
+      <!-- START lower update -->
+      <% if project.updates.size > 0 %>
+         <table class="table">
+            <tbody>
+               <tr>
+                  <td>
+                     <%= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      <% end %>
+      <!-- END lower update -->
 
       <div class="panel-footer text-center">
          <%= link_to project_path(project) do %>
