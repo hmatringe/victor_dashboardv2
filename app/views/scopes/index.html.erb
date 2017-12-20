@@ -1,12 +1,17 @@
 <%#= render partial: "tmp_index" %>
+<div class="pull-right">
+	<%= link_to "Create Scope", new_scope_path, class: "btn btn-default btn-sm" %>
+</div>
+<h3>Scopes</h3>
 
 <% @scopes.each do |scope| %>
-		
+		<div class="row">
 		<h3>
 			<%= scope.name  %>
 		</h3>
+		<br>
 		<% scope.projects.each do |p| %>
  			<%= render partial: "projects/project_card", locals: { project: p, scope: p.scope} %>
  		<% end %>
-		
+		</div>
 <% end %>
