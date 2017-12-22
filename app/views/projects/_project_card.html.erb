@@ -14,9 +14,9 @@
          <small class="text-muted">
             Frame: <%= scope.name %>
             <br>
-            <%= scope.start_date %>
-            |
-            <%= scope.end_date %>
+            <%#= scope.start_date %>
+            <!-- | -->
+            <%#= scope.end_date %>
          </small>
       </div>
       
@@ -44,8 +44,20 @@
                   <div class="media-box-body clearfix">
                     <strong class="media-box-heading text-secondary">
                        Avancement du Chantier<br>
+                       <small class="text-muted">
+                        <%= scope.start_date %>
+                        |
+                        <%= scope.end_date %>
+                        </small>
                      </strong>
-                     <%= render partial: "progress_bar", locals: {project: project} %>
+                     <%= render partial: "projects/progress_bar", locals: {project: project} %>
+                  </div>
+                  <div class="media-box-body clearfix">
+                    <p class="mb-sm">
+                      <small class="pull-right">
+                        Owner: <%= project.owner.full_name %>
+                      </small>
+                    </p>
                   </div>
                </td>
             </tr>
@@ -54,17 +66,17 @@
       <!-- END higher update -->
    
       <!-- START lower update -->
-      <%# if project.updates.where(update_week: @this_week).size != 0 %>
-         <!-- <table class="table">
+      <% if project.updates.where(update_week: @this_week).size != 0 %>
+         <table class="table">
             <tbody>
                <tr>
                   <td>
-                     <%#= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
+                     <%= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
                   </td>
                </tr>
             </tbody>
-         </table> -->
-      <%# end %>
+         </table>
+      <% end %>
       <!-- END lower update -->
 
       <div class="panel-footer text-center">
