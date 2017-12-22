@@ -30,4 +30,8 @@ class Project < ApplicationRecord
       errors.add :end_date_forecast, "must be anterior or equal to start date"
     end
   end
+
+  def update_this_week?
+    updates.where(update_week: @this_week).size != 0
+  end
 end

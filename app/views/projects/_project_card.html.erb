@@ -3,7 +3,9 @@
       <div class="panel-heading">
          <div class="pull-right">
             <% if project.updates.where(update_week: @this_week).size != 0 %>
-               <div class="label label-<%= project.updates.last.progress_status_color %>">up to date</div>
+               <div class="label label-<%= project.updates.last.progress_status_color %>">
+               <%= project.updates.last.progress_status %>
+               </div>
             <% else %>
                <div class="label label-grey">no weekly update</div>
             <% end %>
@@ -29,10 +31,10 @@
                   </div>
                </td> -->
                <td>
-                  <% if project.updates.size > 0 %>
+                  <% if project.updates.where(update_week: @this_week).size != 0 %>
                      <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>
                   <% else %>
-                     No updates were created
+                     <%= link_to "Create Update", new_project_update_path(project, Update.new), class: "btn btn-default" %>
                   <% end %>
                </td>
             </tr>
@@ -41,6 +43,9 @@
       <!-- END higher update -->
       
       <!-- START Progress Bar -->
+      <div class="panel-heading">
+         <h4 class="m0">Avancement du Chantier</h4>
+      </div>
       <div class="panel-body">
          <div class="table-grid table-grid-align-middle">
             <div class="col">
@@ -59,7 +64,7 @@
       <!-- END Progress Bar -->
       
       <!-- START lower update -->
-      <% if project.updates.size > 0 %>
+      <% if project.updates.where(update_week: @this_week).size != 0 %>
          <table class="table">
             <tbody>
                <tr>
@@ -81,7 +86,6 @@
                <button type="button" class="btn btn-default">Edit</button>
             <% end %>
          <%# end %>
-         <%= link_to "Create Update", new_project_update_path(project, Update.new), class: "btn btn-default" %>
       </div>
    </div>
 </div>
