@@ -105,7 +105,7 @@
          
          <div data-height="100%" data-scrollable="" class="list-group">
             
-            <% project.updates.each do |update|%>
+            <% project.updates.sort_by(&:created_at).reverse.each do |update|%>
                <%= render partial: "project_details_updates_list_item", locals: { update: update} %>
             <% end %>
          </div>
