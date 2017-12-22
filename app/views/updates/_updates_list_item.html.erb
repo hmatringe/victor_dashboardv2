@@ -1,0 +1,36 @@
+<a href="#" class="list-group-item">
+	<div class="media-box">
+	   <!-- <div class="pull-left">
+	      <img src="<%#= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
+	   </div> -->
+	   <div class="media-box-body clearfix">
+	      <small class="pull-right">
+	      	last updated at <%= update.updated_at.strftime('%H:%M, %A %e %b %Y') %>
+      	</small>
+	      <strong class="media-box-heading text-secondary">
+	         <h4>
+	         	<span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span>
+	         	<%= update.project.title %>
+	         	</h4>
+	       </strong>
+	      <p class="mb-sm">
+	         <strong>Main Progress:</strong>
+	         <br>
+	         <%= update.main_progress %>
+	      </p>
+	      <p class="mb-sm">
+       		<strong>Risks:</strong>
+       		<br>
+	        <%= update.risks %>
+	      </p>
+	      <p class="mb-sm">
+	      	<strong>Next Steps:</strong>
+	      	<br>
+	        <%= update.next_steps %>
+	      </p>
+	      <p class="mb-sm">
+	         <%= update.update_week %>
+	      </p>
+	   </div>
+	</div>
+</a>
