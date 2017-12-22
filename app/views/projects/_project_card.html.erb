@@ -33,7 +33,6 @@
                <td>
                   <% if project.updates.where(update_week: @this_week).size != 0 %>
                      <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>
-                     <%= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
                   <% else %>
                      <%= link_to "Update Now", new_project_update_path(project, Update.new), class: "btn btn-default" %>
                   <% end %>
@@ -66,17 +65,17 @@
       <!-- END higher update -->
    
       <!-- START lower update -->
-      <% if project.updates.where(update_week: @this_week).size != 0 %>
-         <table class="table">
+      <%# if project.updates.where(update_week: @this_week).size != 0 %>
+         <!-- <table class="table">
             <tbody>
                <tr>
                   <td>
-                     <%= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
+                     <%#= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
                   </td>
                </tr>
             </tbody>
-         </table>
-      <% end %>
+         </table> -->
+      <%# end %>
       <!-- END lower update -->
 
       <div class="panel-footer text-center">
