@@ -30,4 +30,86 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  project: "project"
+  Project: "Project"
+  projects: "projects"
+  Projects: "Projects"
+  Scope: "Scope"
+  Scopes: "Scopes"
+  sign_in: "Sign in"
+  sign_out: "Sign out"
+  sign_in_message: "You must be logged in to access this dashboard"
+  sign_in_message_success: "You are already logged in"
+  hello: "Hi"
+  Update: "Update"
+  updates: "Updates"
+  Updates: "Updates"
+  updates_of_the_week: "Updates of the week"
+  updates_of_last_week: "Updates of last week"
+  projects_missing_update: "Projects missing an update"
+  this_week: "this week"
+  last_week: "next week"
+  back_to_this_week_updates: "Back to updates of the week"
+  # TODO duplicates Start
+  Main_Progress: "Main Progress"
+  Risks: "Risks"
+  Next_Steps: "Next Steps" 
+  # TODO duplicates End
+  last_updated_at: "last updated at "
+  # Button Actions
+  Create: "Create"
+  Edit: "Edit"
+  Details: "Details"
+  Submit: "Submit"
+  up_to_date: "up to date"
+  no_weekly_update: "no weekly update"
+  no_updates_created: "No updates were created"
+  Start_date: "Start date"
+  End_date: "End date"
+  forecast: "forecast"
+  actual: "actual"
+  Owner: "Owner"
+  Description: "Description"
+  # model Project
+  project:
+    title: "title"
+    description: "description"
+    start_date: "start_date"
+    end_date_forecast: "end_date_forecast"
+    end_date_actual: "end_date_actual"
+  update:
+    update_week: "update week"
+    main_progress: "main progress"
+    progress_status: "progress_status"
+    risks: "risks"
+    next_steps: "next steps"
+    
+
+  # forms
+  New_male: "New"
+  New_female: "New"
+  Edit: "Edit"
+  
+  simple_form:
+    options:
+      defaults:
+        progress_status:
+          as_planned: "as planned" 
+          slight_delays: "slight delays"
+          delayed: "delayed"
+  as_planned: "as planned" 
+  slight_delays: "slight delays"
+  delayed: "delayed"
+
+  project_chrono_progress: "Project progression"
+
+
+
+
+
+
+
+
+
+
+

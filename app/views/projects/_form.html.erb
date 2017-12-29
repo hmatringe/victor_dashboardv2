@@ -1,10 +1,10 @@
 <%= simple_form_for	@project do |i| %>
-	<%= i.input :title %>
-	<%= i.input :description %>
-	<%= i.input :start_date %>
-	<%= i.input :end_date_forecast %>
-	<%= i.input :end_date_actual, include_blank: true %>
-	<%= i.association :owner, label_method: :full_name_with_email %>
-	<%= i.association :scope %>
-	<%= i.submit "Submit" %>
+	<%= i.input :title, label: t("project.title").capitalize %>
+	<%= i.input :description, label: t("project.description").capitalize %>
+	<%= i.input :start_date, label: t("project.start_date").capitalize %>
+	<%= i.input :end_date_forecast, label: t("project.end_date_forecast").capitalize %>
+	<%= i.input :end_date_actual, include_blank: true, label: t("project.end_date_actual").capitalize %>
+	<%= i.association :owner, label_method: :full_name_with_email, label: t(:Owner) %>
+	<%= i.association :scope, label: t(:Scope) %>
+	<%= i.submit t(:Submit) %>
 <% end %>

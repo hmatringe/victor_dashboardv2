@@ -3,16 +3,18 @@
       <div class="panel-heading">
          <div class="pull-right">
             <% if project.updates.where(update_week: @this_week).size != 0 %>
+
+               <!-- <div class="label label-<%= project.updates.last.progress_status_color %>"><%#= t(:up_to_date) %></div> -->
                <div class="label label-<%= project.updates.last.progress_status_color %>">
-               <%= project.updates.last.progress_status %>
+               <%= t(project.updates.last.progress_status) %>
                </div>
             <% else %>
-               <div class="label label-grey">no weekly update</div>
+               <div class="label label-grey"><%= t(:no_weekly_update) %></div>
             <% end %>
          </div>
          <h4 class="m0"><%= project.title %></h4>
          <small class="text-muted">
-            Frame: <%= scope.name %>
+            <%= t(:Scope) %>: <%= scope.name %>
             <br>
             <%#= scope.start_date %>
             <!-- | -->
@@ -34,7 +36,9 @@
                   <% if project.updates.where(update_week: @this_week).size != 0 %>
                      <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>
                   <% else %>
-                     <%= link_to "Update Now", new_project_update_path(project, Update.new), class: "btn btn-default" %>
+                     <%#= t(:no_updates_created) %>
+                     <%= link_to t(:Create) + " " + t(:Update), new_project_update_path(project, Update.new), class: "btn btn-default" %>
+                     <%#= link_to "Update Now", new_project_update_path(project, Update.new), class: "btn btn-default" %>
                   <% end %>
                </td>
             </tr>
@@ -42,7 +46,7 @@
                <td>
                   <div class="media-box-body clearfix">
                     <strong class="media-box-heading text-secondary">
-                       Avancement du Chantier<br>
+                       <%= t(:project_chrono_progress) %><br>
                        <small class="text-muted">
                         <%= scope.start_date %>
                         |
@@ -54,7 +58,7 @@
                   <div class="media-box-body clearfix">
                     <p class="mb-sm">
                       <small class="pull-right">
-                        Owner: <%= project.owner.full_name %>
+                        <%= t(:Owner) %>: <%= project.owner.full_name %>
                       </small>
                     </p>
                   </div>
@@ -80,11 +84,11 @@
 
       <div class="panel-footer text-center">
          <%= link_to project_path(project) do %>
-            <button type="button" class="btn btn-default">Details</button>
+            <button type="button" class="btn btn-default"><%= t(:Details) %></button>
          <% end %>
          <%# if current_user.admin %>
             <%= link_to edit_project_path(project) do %>
-               <button type="button" class="btn btn-default">Edit</button>
+               <button type="button" class="btn btn-default"><%= t(:Edit) %></button>
             <% end %>
          <%# end %>
       </div>

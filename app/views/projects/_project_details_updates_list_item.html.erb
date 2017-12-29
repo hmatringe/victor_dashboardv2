@@ -5,22 +5,22 @@
 	   </div> -->
 	   <div class="media-box-body clearfix">
 	      <small class="pull-right">
-	      	last updated at <%= update.updated_at.strftime('%H:%M, %A %e %b %Y') %>
+	      	<%= t(:last_updated_at) %><%= update.updated_at.strftime('%H:%M, %A %e %b %Y') %>
       	</small>
 	      <strong class="media-box-heading text-secondary">
 	         <span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span>
-	         <strong>Main Progress:</strong>
+	         <strong><%= t(:Main_Progress) %>:</strong>
 	       </strong>
 	      <p class="mb-sm">
 	         <%= update.main_progress %>
 	      </p>
 	      <p class="mb-sm">
-       		<strong>Risks:</strong>
+       		<strong><%= t(:Risks) %>:</strong>
        		<br>
 	        <%= update.risks %>
 	      </p>
 	      <p class="mb-sm">
-	      	<strong>Next Steps:</strong>
+	      	<strong><%= t(:Next_Steps) %>:</strong>
 	      	<br>
 	        <%= update.next_steps %>
 	      </p>
