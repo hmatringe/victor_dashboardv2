@@ -3,7 +3,9 @@
       <div class="panel-heading">
          <div class="pull-right">
             <% if project.updates.where(update_week: @this_week).size != 0 %>
-               <div class="label label-<%= project.updates.last.progress_status_color %>">up to date</div>
+               <div class="label label-<%= project.updates.last.progress_status_color %>">
+               <%= project.updates.last.progress_status %>
+               </div>
             <% else %>
                <div class="label label-grey">no weekly update</div>
             <% end %>
@@ -12,9 +14,9 @@
          <small class="text-muted">
             Frame: <%= scope.name %>
             <br>
-            <%= scope.start_date %>
-            |
-            <%= scope.end_date %>
+            <%#= scope.start_date %>
+            <!-- | -->
+            <%#= scope.end_date %>
          </small>
       </div>
       
@@ -29,47 +31,51 @@
                   </div>
                </td> -->
                <td>
-                  <% if project.updates.size > 0 %>
+                  <% if project.updates.where(update_week: @this_week).size != 0 %>
                      <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>
                   <% else %>
-                     No updates were created
+                     <%= link_to "Update Now", new_project_update_path(project, Update.new), class: "btn btn-default" %>
                   <% end %>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <div class="media-box-body clearfix">
+                    <strong class="media-box-heading text-secondary">
+                       Avancement du Chantier<br>
+                       <small class="text-muted">
+                        <%= scope.start_date %>
+                        |
+                        <%= scope.end_date %>
+                        </small>
+                     </strong>
+                     <%= render partial: "projects/progress_bar", locals: {project: project} %>
+                  </div>
+                  <div class="media-box-body clearfix">
+                    <p class="mb-sm">
+                      <small class="pull-right">
+                        Owner: <%= project.owner.full_name %>
+                      </small>
+                    </p>
+                  </div>
                </td>
             </tr>
          </tbody>
       </table>
       <!-- END higher update -->
-      
-      <!-- START Progress Bar -->
-      <div class="panel-body">
-         <div class="table-grid table-grid-align-middle">
-            <div class="col">
-               <div class="visible-xs visible-sm text-bold text-muted text-right"><%= project.completion %>%</div>
-               <div data-toggle="tooltip" data-title="Progression">
-                  <div class="progress progress-xs m0">
-                     <div style="width:<%= project.completion %>%" class="progress-bar progress-bar-primary"><%= project.completion %>%</div>
-                  </div>
-               </div>
-            </div>
-            <div class="col wd-xxs text-right hidden-xs hidden-sm">
-               <div class="text-bold text-muted"><%= project.completion %>%</div>
-            </div>
-         </div>
-      </div>
-      <!-- END Progress Bar -->
-      
+   
       <!-- START lower update -->
-      <% if project.updates.size > 0 %>
-         <table class="table">
+      <%# if project.updates.where(update_week: @this_week).size != 0 %>
+         <!-- <table class="table">
             <tbody>
                <tr>
                   <td>
-                     <%= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
+                     <%#= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
                   </td>
                </tr>
             </tbody>
-         </table>
-      <% end %>
+         </table> -->
+      <%# end %>
       <!-- END lower update -->
 
       <div class="panel-footer text-center">
@@ -81,7 +87,6 @@
                <button type="button" class="btn btn-default">Edit</button>
             <% end %>
          <%# end %>
-         <%= link_to "Create Update", new_project_update_path(project, Update.new), class: "btn btn-default" %>
       </div>
    </div>
 </div>

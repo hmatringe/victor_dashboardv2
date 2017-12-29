@@ -52,9 +52,9 @@
 
 
 
-// our choice
-(function($) {
-   $(document).ready(function(){
-      $('#chosen-theme').click()    
-   });
-})(jQuery);
+// our choice custom hm
+// (function($) {
+//    $(document).ready(function(){
+//       $('#chosen-theme').click()    
+//    });
+// })(jQuery);

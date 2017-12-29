@@ -4,7 +4,7 @@
 <div class="pull-right">
 	<%= link_to "Create Project", new_project_path, class: "btn btn-default btn-sm" %>
 </div>
-<h3>Projects</h3>
+<h3>Projects - <%= @this_week_short %></h3>
 <div class="row">
  		<% @projects.each do |p| %>
  			<%= render partial: "project_card", locals: { project: p, scope: p.scope} %>

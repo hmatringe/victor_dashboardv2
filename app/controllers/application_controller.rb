@@ -6,9 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :set_weeks
 
   def set_weeks
-    @last_week =  "Semaine " + Time.now.last_week.strftime('%W') + " du " + Date.today.last_week.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.last_week.end_of_week.strftime('%Y-%m-%d')
-    @this_week = "Semaine " + Time.now.strftime('%W') + " du " + Date.today.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.end_of_week.strftime('%Y-%m-%d')
-    @next_week = "Semaine " + Time.now.next_week.strftime('%W') + " du " + Date.today.next_week.beginning_of_week.strftime('%Y-%m-%d') + " au " + Date.today.next_week.end_of_week.strftime('%Y-%m-%d')
+    # @date_format_db = '%Y-%m-%d'
+    @date_format = '%d-%m-%Y'
+    @last_week =  "Semaine " + Time.now.last_week.strftime('%W') + " du " + Date.today.last_week.beginning_of_week.strftime(@date_format) + " au " + Date.today.last_week.end_of_week.strftime(@date_format)
+    @this_week = "Semaine " + Time.now.strftime('%W') + " du " + Date.today.beginning_of_week.strftime(@date_format) + " au " + Date.today.end_of_week.strftime(@date_format)
+    @this_week_short = "Semaine " + Time.now.strftime('%W')
+    @next_week = "Semaine " + Time.now.next_week.strftime('%W') + " du " + Date.today.next_week.beginning_of_week.strftime(@date_format) + " au " + Date.today.next_week.end_of_week.strftime(@date_format)
   end
 
   def dashboard
