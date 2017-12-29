@@ -26,7 +26,7 @@
          <!-- Iterates over all sidebar items-->
          <li class="nav-heading">
                <% if current_user %>
-               <span>Hi, <%= current_user.first_name %> </span>
+               <span><%= t(:hello) %>, <%= current_user.first_name %> </span>
                <br>
                <% end %>
             </li>
@@ -36,19 +36,19 @@
             <li class="<%= 'active' if controller?('projects') && action?('index') %>">
                <a href="/projects" title="Projects">
                   <em class="icon-speedometer"></em>
-                  <span>Projects</span>
+                  <span><%= t(:Projects) %></span>
                </a>
             </li>
             <li class="<%= 'active' if controller?('scopes') && action?('index') %>">
                <a href="/scopes" title="Scopes">
                   <em class="icon-grid"></em>
-                  <span>Scopes</span>
+                  <span><%= t(:Scopes) %></span>
                </a>
             </li>
             <li class="<%= 'active' if controller?('updates') && action?('updates_of_the_week') %>">
                <a href="/updates_of_the_week" title="Updates">
                   <em class="icon-graph"></em>
-                  <span>Updates of the week</span>
+                  <span><%= t(:updates) %></span>
                </a>
             </li>
          </ul>         

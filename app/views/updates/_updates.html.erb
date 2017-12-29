@@ -5,7 +5,7 @@
 		   <div class="panel-heading">
 		      <!-- <div class="pull-right label label-danger">5</div> -->
 		      <div class="pull-right label label-primary"><%= @updates.length %></div>
-		      <div class="panel-title">Updates</div>
+		      <div class="panel-title"><%= t(:updates) %></div>
 		   </div>
 		   
 		   <div data-height="100%" data-scrollable="" class="list-group">
@@ -22,7 +22,7 @@
 		   <div class="panel-heading">
 		      <!-- <div class="pull-right label label-danger">5</div> -->
 		      <div class="pull-right label label-primary"></div>
-		      <div class="panel-title">Projects missing an update <%= week %></div>
+		      <div class="panel-title"><%= t(:projects_missing_update) %> <%= week %></div>
 		   </div>
 		   
 		   <div data-height="100%" data-scrollable="" class="list-group">
