@@ -1,7 +1,7 @@
 <div class="media-box-body clearfix">
   <strong class="media-box-heading text-secondary">
-     <span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span>
-     <strong><%= t(:Main_Progress) %>:</strong><br>
+     <!-- <span class="circle circle-<%#= update.progress_status_color %> circle-lg text-left"></span> -->
+     <%= t(:Main_Progress) %>:<br>
    </strong>
   <p class="mb-sm">
      <%= update.main_progress.nil? ? "n/a" : update.main_progress %>

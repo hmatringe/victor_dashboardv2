@@ -28,11 +28,11 @@ class UpdatesController < ApplicationController
     @update.project = @project
     respond_to do |format|
       if @update.save
-        format.html { redirect_to [@project,@update], notice: 'update was successfully created.' }
+        format.html { redirect_to controller: "projects", action: "index", notice: 'update was successfully created.' }
         # format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
-        raise
+        # raise
         # format.json { render json: @update.errors, status: :unprocessable_entity }
       end
     end
@@ -44,6 +44,7 @@ class UpdatesController < ApplicationController
   def update
     respond_to do |format|
       if @update.update(update_params)
+
         format.html { redirect_to [@project,@update], notice: 'Update was successfully updated.' }
         # format.json { render :show, status: :ok, location: @update }
       else

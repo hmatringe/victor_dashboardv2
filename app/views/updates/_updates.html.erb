@@ -11,7 +11,7 @@
 		   <div data-height="100%" data-scrollable="" class="list-group">
 		      
 		      <% @updates.each do |update|%>
-		         <%= render partial: "projects/project_details_updates_list_item", locals: { update: update} %>
+		         <%= render partial: "updates/updates_list_item", locals: { update: update} %>
 		      <% end %>
 		   </div>
 		   
