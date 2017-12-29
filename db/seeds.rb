@@ -53,12 +53,13 @@ project6 = Project.create title: "Développement", description: "Loremp ipsum - 
 
 p "creating updates"
 ze_date = Date.parse("2017-12-11")
+# ze_date = Date.today
 date_format = '%d-%m-%Y'
 ze_week = "Semaine " + ze_date.strftime('%W') + " du " + ze_date.beginning_of_week.strftime(date_format) + " au " + ze_date.end_of_week.strftime(date_format)
 
 update1 = Update.create project: project1,
 												update_week: ze_week,
-												progress_status: "as planned",
+												progress_status: "as_planned",
 												main_progress: "nouveau dcommentaire",
 												risks: "Désaccord sur les recommandations",
 												next_steps: "Nomination équipe projet (en attente)
@@ -66,7 +67,7 @@ Workshop avec l'équipe"
 
 update2 = Update.create project: project2,
 												update_week: ze_week,
-												progress_status: "slight delays",
+												progress_status: "slight_delays",
 												main_progress: "Réduction du scope en Etape A aux opportunités les plus réalistes / pertinentes",
 												risks: "Délais d'organisation des workshops",
 												next_steps: "Nomination équipe projet (en attente)
@@ -86,7 +87,7 @@ Lancer les invitations pour les workshops (en accord avec équipe projet)"
 
 update6 = Update.create project: project6,
 												update_week: ze_week,
-												progress_status: "slight delays",
+												progress_status: "slight_delays",
 												main_progress: "Choix du matériel",
 												risks: "offres retardés des intégrateurs",
 												next_steps: "Lancement RFP"

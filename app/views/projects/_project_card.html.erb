@@ -6,7 +6,7 @@
 
                <!-- <div class="label label-<%= project.updates.last.progress_status_color %>"><%#= t(:up_to_date) %></div> -->
                <div class="label label-<%= project.updates.last.progress_status_color %>">
-               <%= project.updates.last.progress_status %>
+               <%= t(project.updates.last.progress_status) %>
                </div>
             <% else %>
                <div class="label label-grey"><%= t(:no_weekly_update) %></div>
@@ -46,7 +46,7 @@
                <td>
                   <div class="media-box-body clearfix">
                     <strong class="media-box-heading text-secondary">
-                       Avancement du Chantier<br>
+                       <%= t(:project_chrono_progress) %><br>
                        <small class="text-muted">
                         <%= scope.start_date %>
                         |
@@ -58,7 +58,7 @@
                   <div class="media-box-body clearfix">
                     <p class="mb-sm">
                       <small class="pull-right">
-                        Owner: <%= project.owner.full_name %>
+                        <%= t(:Owner) %>: <%= project.owner.full_name %>
                       </small>
                     </p>
                   </div>

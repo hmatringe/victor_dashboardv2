@@ -54,16 +54,23 @@ fr:
       next_steps: "prochaines étapes"
 
 
+  # forms
+  New_male: "Nouveau"
+  New_female: "Nouvelle"
+  Edit: "Éditer"
 
   simple_form:
     options:
       defaults:
         progress_status:
-          green: "vert"
-          yellow: "jaune"
-          red: "rouge"
-          
-
+          as_planned: "comme prévu" 
+          slight_delays: "légers retards"
+          delayed: "retards"
+  as_planned: "comme prévu" 
+  slight_delays: "légers retards"
+  delayed: "retards"
+  
+  project_chrono_progress: "Avancement du Chantier"
 
 
 

@@ -85,7 +85,23 @@ en:
     next_steps: "next steps"
     
 
+  # forms
+  New_male: "New"
+  New_female: "New"
+  Edit: "Edit"
+  
+  simple_form:
+    options:
+      defaults:
+        progress_status:
+          as_planned: "as planned" 
+          slight_delays: "slight delays"
+          delayed: "delayed"
+  as_planned: "as planned" 
+  slight_delays: "slight delays"
+  delayed: "delayed"
 
+  project_chrono_progress: "Project progression"
 
 
 
