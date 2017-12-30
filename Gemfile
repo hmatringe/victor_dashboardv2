@@ -9,7 +9,9 @@ end
 
 gem 'devise'
 gem 'devise-i18n'
+# dependency devise_logout start
 gem 'jquery-rails'
+# dependency devise_logout end
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'

@@ -3,8 +3,10 @@
 //
 
 //--- Angle
+// dependency devise_logout start
 //= require jquery
 //= require jquery_ujs
+// dependency devise_logout end
 //= require angle/app.init
 //= require_tree ./angle/modules
 //= require_tree ./angle/custom
