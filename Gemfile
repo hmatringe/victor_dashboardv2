@@ -9,6 +9,7 @@ end
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'jquery-rails'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
