@@ -34,19 +34,19 @@
 
             
             <li class="<%= 'active' if controller?('projects') && action?('index') %>">
-               <a href="/projects" title="Projects">
+               <a href="/chantiers" title="Projects">
                   <em class="icon-speedometer"></em>
                   <span><%= t(:Projects) %></span>
                </a>
             </li>
             <li class="<%= 'active' if controller?('scopes') && action?('index') %>">
-               <a href="/scopes" title="Scopes">
+               <a href="/projets" title="Scopes">
                   <em class="icon-grid"></em>
                   <span><%= t(:Scopes) %></span>
                </a>
             </li>
             <li class="<%= 'active' if controller?('updates') && action?('updates_of_the_week') %>">
-               <a href="/updates_of_the_week" title="Updates">
+               <a href="/mises_a_jour_de_la_semaine" title="Updates">
                   <em class="icon-graph"></em>
                   <span><%= t(:updates) %></span>
                </a>
