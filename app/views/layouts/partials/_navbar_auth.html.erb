@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
  <li>
-		<%= link_to destroy_user_session_path, method: :delete, class: "hidden-xs" do %>
+		<%= link_to destroy_user_session_path, method: :delete do %>
       <%= t(:sign_out) %>
     <% end %>
    </li>
