@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
 	<p><%= t(:sign_in_message_success) %> <%= current_user.first_name %> :) </p>
 <% else %>
-	<p><%= t(:sign_in_message) %></p>
-	<%= link_to t(:sign_in), new_user_session_path, class: "btn btn-default btn-sm" %>
+	<div class="cust-center-on-xs">
+		<p><%= t(:sign_in_message) %></p>
+		<%= link_to t(:sign_in), new_user_session_path, class: "btn btn-default btn-sm" %>
+	</div>
 <% end %>
 
