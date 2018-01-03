@@ -14,9 +14,11 @@
       <%= stylesheet_link_tag params[:controller] %>
    <% end %>
    <!-- =============== APP STYLES ===============-->
-   <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-icon-144x144-precomposed.png" />
    <%= csrf_meta_tags %>
    <%= favicon_link_tag "favicon.png", type: "image/png" %>
+   <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
 </head>
 
 <body>
