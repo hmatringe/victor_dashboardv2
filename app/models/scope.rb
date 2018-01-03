@@ -1,4 +1,19 @@
+# == Schema Information
+#
+# Table name: scopes
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  start_date  :date
+#  end_date    :date
+#  status      :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  sort_weight :integer
+#
+
 class Scope < ApplicationRecord
+	# en français: Projet
 	has_many :participants, dependent: :destroy
 	has_many :projects, dependent: :destroy
 

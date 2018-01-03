@@ -17,7 +17,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'simple_form'
 gem 'webpacker'
 gem 'rails', '5.1.0'
@@ -31,6 +31,8 @@ gem "bower-rails", "~> 0.9.2"
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+
+gem 'annotate'
 
 
 group :development, :test do
