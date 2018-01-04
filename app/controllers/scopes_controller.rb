@@ -1,7 +1,37 @@
 class ScopesController < ApplicationController
   before_action :set_scope, only: [:show, :edit, :update, :destroy]
   def index
-    @scopes = Scope.all
+    @scopes ||= Scope.all
+    
+    @tasks = []
+    @scopes.each do |sc|
+      @tasks << {
+        Task_ID: "Project - #{sc.name}",
+        Task_Name: "Project - #{sc.name}",
+        Resource: sc.name,
+        Start_Date: sc.start_date,
+        End_Date: sc.end_date,
+        Duration: nil,
+        Percent_Complete: sc.completion,
+        Dependencies: nil
+      }
+      if sc.projects
+        sc.projects.each do |p|
+          @tasks << {
+            Task_ID: p.title,
+            Task_Name: p.title,
+            Resource: sc.name,
+            Start_Date: p.start_date,
+            End_Date: p.end_date_actual || p.end_date_forecast,
+            Duration: nil,
+            Percent_Complete: p.completion,
+            # Dependencies: sc.name
+            Dependencies: nil
+          }   
+        end
+      end
+    end
+
   end
 
   def show

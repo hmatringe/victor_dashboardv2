@@ -83,7 +83,11 @@ en:
     progress_status: "progress_status"
     risks: "risks"
     next_steps: "next steps"
-    
+  # devise
+  sign_up: "Sign up"  
+  log_in: "Log in"  
+  forgot_password?: "Forgot your password?"  
+  send_me_password_instructions: "Send me reset password instructions"  
 
   # forms
   New_male: "New"

@@ -24,6 +24,16 @@ class Scope < ApplicationRecord
   validate :start_date_anterior_or_equal_to_end_date
 	
 
+  def completion
+		if start_date == Date.today
+			0
+		else
+			completed = Date.today.mjd - start_date.mjd
+			total = end_date.mjd - start_date.mjd
+			(completed.to_f / total * 100).round(0)
+		end
+  end
+
 	def start_date_anterior_or_equal_to_end_date
     if end_date < start_date
       errors.add :end_date, "must be anterior or equal to start date"

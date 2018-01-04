@@ -2,7 +2,22 @@
 <div class="pull-right">
 	<%= link_to t(:Create) + " " + t(:Scope), new_scope_path, class: "btn btn-default btn-sm" %>
 </div>
+
+
+
+
 <h3><%= t(:Scopes) %></h3>
+
+<div 
+	id="scopes_chantiers_gantt_chart_div"
+	data-tasks="<%= @tasks.to_json %>"
+></div>
+
+<div 
+	id="scopes_chantiers_gantt_chart_div2"
+	data-tasks="<%= @tasks.to_json %>"
+></div>
+
 
 <% @scopes.each do |scope| %>
 		<div class="row">
@@ -14,4 +29,10 @@
  			<%= render partial: "projects/project_card", locals: { project: p, scope: p.scope} %>
  		<% end %>
 		</div>
+<% end %>
+
+
+<%= content_for	:head do %>
+	<%= render partial: "scopes/scopes_chantiers_gantt_chart" %>
+	<%#= render partial: "scopes/scopes_chantiers_gantt_chart2" %>
 <% end %>
