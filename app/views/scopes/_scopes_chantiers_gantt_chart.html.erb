@@ -1,0 +1,55 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['gantt']});
+  // google.charts.setOnLoadCallback(buildRows);
+  google.charts.setOnLoadCallback(drawChart);
+
+ 	// preparing rows 
+  const chartElement = document.getElementById('scopes_chantiers_gantt_chart_div');
+
+	// function valuesToArray(obj) {
+	//   return Object.keys(obj).map(function (key) { return obj[key]; });
+	// }
+	const valuesToArray = obj => Object.keys(obj).map(key => obj[key])
+	
+
+	const tasks_formatted = new Array()
+  
+  const tasks = JSON.parse(chartElement.dataset.tasks);
+	for (var i = 0; i < tasks.length; i++) {
+	    tasks[i].Start_Date = new Date(tasks[i].Start_Date)
+	    tasks[i].End_Date = new Date(tasks[i].End_Date)
+	    let task_formatted = valuesToArray(tasks[i])
+	    tasks_formatted.push(task_formatted)
+	}
+
+  function daysToMilliseconds(days) {
+    return days * 24 * 60 * 60 * 1000;
+  }
+
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Task ID');
+    data.addColumn('string', 'Task Name');
+    data.addColumn('string', 'Resource');
+    data.addColumn('date', 'Start Date');
+    data.addColumn('date', 'End Date');
+    data.addColumn('number', 'Duration');
+    data.addColumn('number', 'Percent Complete');
+    data.addColumn('string', 'Dependencies');
+
+    data.addRows(tasks_formatted);
+
+		var height = data.getNumberOfRows() * 41 + 50;
+
+    var options = {
+      height: height
+    };
+
+    var chart = new google.visualization.Gantt(document.getElementById('scopes_chantiers_gantt_chart_div'));
+
+    chart.draw(data, options);
+  }
+</script>

@@ -31,7 +31,11 @@ class Project < ApplicationRecord
 			0
 		else
 			completed = Date.today.mjd - start_date.mjd
-			total = [end_date_forecast].max.mjd - start_date.mjd
+			if end_date_actual
+        total = end_date_forecast.mjd - start_date.mjd
+      else
+        total = end_date_forecast.mjd - start_date.mjd
+      end
 			(completed.to_f / total * 100).round(0)
 		end
   end
@@ -50,5 +54,9 @@ class Project < ApplicationRecord
 
   def update_this_week?
     updates.where(update_week: @this_week).size != 0
+  end
+
+  def duration
+    (end_date_actual || end_date_forecast - start_date).to_i    
   end
 end
