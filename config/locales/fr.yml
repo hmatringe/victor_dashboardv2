@@ -52,6 +52,11 @@ fr:
       progress_status: "Statut de progression"
       risks: "risques"
       next_steps: "prochaines étapes"
+  # devise
+  sign_up: "S'enregistrer"  
+  log_in: "S'identifier"  
+  forgot_password?: "Mot de passe oublié?"  
+  send_me_password_instructions: "Envoyer les instructions pour réinitialiser le mot de passe"  
 
 
   # forms
