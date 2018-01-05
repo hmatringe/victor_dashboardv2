@@ -10,12 +10,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  sort_weight :integer
+#  project_id  :integer
 #
 
 class Step < ApplicationRecord
 	# en français: Étape
 	has_many :participants, dependent: :destroy
 	has_many :streams, dependent: :destroy
+	belongs_to :project
 
 	validates :name, presence: true
 	validates :start_date, presence: true
