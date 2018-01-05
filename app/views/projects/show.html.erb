@@ -15,7 +15,7 @@
       <div class="panel b">
          <div class="panel-heading">
             <div class="pull-right mt">
-               <div class="label label-info">started</div>
+             	<%= render partial: "projects/project_status", locals: { project: @project} %>
             </div>
             <h4 class="mv">
                <span><%= t(:Project) %>: <%= @project.title %></span>

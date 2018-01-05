@@ -2,23 +2,11 @@
    <div class="panel b">
       <div class="panel-heading">
          <div class="pull-right">
-            <% if project.updates.where(update_week: @this_week).size != 0 %>
-
-               <!-- <div class="label label-<%= project.updates.last.progress_status_color %>"><%#= t(:up_to_date) %></div> -->
-               <div class="label label-<%= project.updates.last.progress_status_color %>">
-               <%= t(project.updates.last.progress_status) %>
-               </div>
-            <% else %>
-               <div class="label label-grey"><%= t(:no_weekly_update) %></div>
-            <% end %>
+            <%= render partial: "projects/project_status", locals: { project: project} %>
          </div>
          <h4 class="m0"><%= project.title %></h4>
          <small class="text-muted">
             <%= t(:Scope) %>: <%= scope.name %>
-            <br>
-            <%#= scope.start_date %>
-            <!-- | -->
-            <%#= scope.end_date %>
          </small>
       </div>
       
@@ -27,11 +15,6 @@
       <table class="table">
          <tbody>
             <tr>
-               <!-- <td>
-                  <div class="pull-left">
-                     <img src="<%#= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
-                  </div>
-               </td> -->
                <td>
                   <% if project.updates.where(update_week: @this_week).size != 0 %>
                      <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>

@@ -59,4 +59,12 @@ class Project < ApplicationRecord
   def duration
     (end_date_actual || end_date_forecast - start_date).to_i    
   end
+
+  def latest_update_status
+    if updates.size != 0
+      updates.last.progress_status
+    else
+      "aucune mise à jour"
+    end
+  end
 end
