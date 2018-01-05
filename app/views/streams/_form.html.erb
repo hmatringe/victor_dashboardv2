@@ -5,6 +5,6 @@
 	<%= i.input :end_date_forecast, label: t("stream.end_date_forecast").capitalize %>
 	<%= i.input :end_date_actual, include_blank: true, label: t("stream.end_date_actual").capitalize %>
 	<%= i.association :owner, label_method: :full_name_with_email, label: t(:Owner) %>
-	<%= i.association :scope, label: t(:Scope) %>
+	<%= i.association :step, label: t(:Step) %>
 	<%= i.submit t(:Submit) %>
 <% end %>

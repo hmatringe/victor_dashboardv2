@@ -11,5 +11,5 @@
 
 class Participant < ApplicationRecord
   belongs_to :user
-  belongs_to :scope
+  belongs_to :step
 end

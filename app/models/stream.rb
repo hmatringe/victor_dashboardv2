@@ -17,7 +17,7 @@
 class Stream < ApplicationRecord
   # en français: Chantier
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
-  belongs_to :scope
+  belongs_to :step
   has_many :updates, dependent: :destroy
   validates :title, presence: true, uniqueness: true, length: { minimum: 6 }
   validates :description, presence: true, length: { minimum: 20 }

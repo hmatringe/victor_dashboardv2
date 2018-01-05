@@ -12,7 +12,7 @@
 #  sort_weight :integer
 #
 
-class Scope < ApplicationRecord
+class Step < ApplicationRecord
 	# en français: Projet
 	has_many :participants, dependent: :destroy
 	has_many :streams, dependent: :destroy

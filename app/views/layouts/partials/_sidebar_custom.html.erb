@@ -34,19 +34,19 @@
 
             
             <li class="<%= 'active' if controller?('streams') && action?('index') %>">
-               <a href="/chantiers" title="Streams">
+               <a href="<%= streams_path %>" title="<%= t(:Streams) %>">
                   <em class="icon-speedometer"></em>
                   <span><%= t(:Streams) %></span>
                </a>
             </li>
             <li class="<%= 'active' if controller?('scopes') && action?('index') %>">
-               <a href="/projets" title="Scopes">
+               <a href="<%= steps_path %>" title="<%= t(:Steps) %>">
                   <em class="icon-grid"></em>
-                  <span><%= t(:Scopes) %></span>
+                  <span><%= t(:Steps) %></span>
                </a>
             </li>
             <li class="<%= 'active' if controller?('updates') && action?('updates_of_the_week') %>">
-               <a href="/mises_a_jour_de_la_semaine" title="Updates">
+               <a href="<%= mises_a_jour_de_la_semaine_path %>" title="Updates">
                   <em class="icon-graph"></em>
                   <span><%= t(:updates) %></span>
                </a>

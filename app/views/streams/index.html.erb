@@ -3,7 +3,7 @@
 </div>
 <h3><%= t(:streams) %> - <%= @this_week_short %></h3>
 <div class="row">
- 		<% @streams.each do |s| %>
- 			<%= render partial: "stream_card", locals: { stream: s, scope: s.scope} %>
+ 		<% @streams.each do |str| %>
+ 			<%= render partial: "stream_card", locals: { stream: str, step: str.step} %>
  		<% end %>
 </div>

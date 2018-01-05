@@ -1,0 +1,23 @@
+<h1>Steps#show</h1>
+<p>Find me in app/views/steps/show.html.erb</p>
+
+<ul>
+	<li>
+		<%= @step.name %>
+	</li>
+	<li>
+		<%= @step.start_date %>
+	</li>
+	<li>
+		<%= @step.end_date %>
+	</li>
+	<li>
+		<%= @step.status %>
+	</li>
+	<li>
+		<%= @step.sort_weight %>
+	</li>
+</ul>
+
+<br>
+<%= link_to "Update step", edit_step_path(@step) %>
