@@ -4,11 +4,12 @@ class UpdatesController < ApplicationController
   
   def updates_of_the_week
     @updates = Update.where(update_week: @this_week)
-    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }
+    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
   end
+  
   def updates_of_last_week
     @updates = Update.where(update_week: @last_week)
-    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }
+    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
   end
 
   def index

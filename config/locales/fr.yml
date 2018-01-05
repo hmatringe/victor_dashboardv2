@@ -12,10 +12,13 @@ fr:
   hello: "Bonjour"
   Update: "Mise à jour"
   updates: "Mises à jour"
+  updates_order: "(Chantier | Projet)"
+  no_update: "Aucune mise à jour"
   Updates: "Mises à jour"
   updates_of_the_week: "Mises à jour de la semaine"
   updates_of_last_week: "Mises à jour de la semaine dernière"
   projects_missing_update: "Chantiers sans mise à jour"
+  projects_missing_update_order: "(Projet | Chantier)"
   this_week: "cette semaine"
   last_week: "la semaine dernière"
   back_to_this_week_updates: "Retour vers les mises à jour de la semaine"
@@ -24,7 +27,7 @@ fr:
   Risks: "Risques"
   Next_Steps: "Prochaines étapes" 
   # TODO duplicates End
-  last_updated_at: "dernière mise à jour : "
+  last_updated_at: "mise à jour : "
   # Button Actions
   Create: "Créer"
   Edit: "Éditer"
