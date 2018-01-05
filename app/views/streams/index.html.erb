@@ -1,0 +1,9 @@
+<div class="pull-right">
+	<%= link_to t(:Create) + " " + t(:Stream), new_stream_path, class: "btn btn-default btn-sm" %>
+</div>
+<h3><%= t(:streams) %> - <%= @this_week_short %></h3>
+<div class="row">
+ 		<% @streams.each do |s| %>
+ 			<%= render partial: "stream_card", locals: { stream: s, scope: s.scope} %>
+ 		<% end %>
+</div>

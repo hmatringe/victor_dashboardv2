@@ -28,7 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :participants, dependent: :destroy
-  has_many :projects, dependent: :destroy
+  has_many :streams, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

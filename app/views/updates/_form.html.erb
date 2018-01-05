@@ -1,9 +1,8 @@
-<%= simple_form_for	[@project, @update] do |i| %>
+<%= simple_form_for	[@stream, @update] do |i| %>
 	<%= i.input :update_week, collection: [ @last_week, @this_week, @next_week], label: t("update.update_week").capitalize %>
 	<%= i.input :main_progress, label: t("update.main_progress").capitalize %>
 	<%= i.input :progress_status, collection: [:as_planned, :slight_delays, :delayed], label: t("update.progress_status").capitalize %>
 	<%= i.input :risks, label: t("update.risks").capitalize %>
 	<%= i.input :next_steps, label: t("update.next_steps").capitalize %>
-	<%#= i.association :project %>
 	<%= i.submit t(:Submit) %>
 <% end %>

@@ -1,8 +1,8 @@
 fr: 
-  project: "chantier"
-  Project: "Chantier"
-  projects: "chantiers"
-  Projects: "Chantiers"
+  stream: "chantier"
+  Stream: "Chantier"
+  streams: "chantiers"
+  Streams: "Chantiers"
   Scope: "Projet"
   Scopes: "Projets"
   sign_in: "S'identifier"
@@ -17,8 +17,8 @@ fr:
   Updates: "Mises à jour"
   updates_of_the_week: "Mises à jour de la semaine"
   updates_of_last_week: "Mises à jour de la semaine dernière"
-  projects_missing_update: "Chantiers sans mise à jour"
-  projects_missing_update_order: "(Projet | Chantier)"
+  streams_missing_update: "Chantiers sans mise à jour"
+  streams_missing_update_order: "(Projet | Chantier)"
   this_week: "cette semaine"
   last_week: "la semaine dernière"
   back_to_this_week_updates: "Retour vers les mises à jour de la semaine"
@@ -42,8 +42,8 @@ fr:
   actual: "réel"
   Owner: "Responsable"
   Description: "Description"
-  # model Project
-  project:
+  # model Stream
+  stream:
     title: "titre"
     description: "description"
     start_date: "date de début"
@@ -78,7 +78,7 @@ fr:
   slight_delays: "légers retards"
   delayed: "retards"
   
-  project_chrono_progress: "Avancement du Chantier"
+  stream_chrono_progress: "Avancement du Chantier"
 
 
 

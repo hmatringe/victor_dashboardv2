@@ -25,8 +25,8 @@
 			<%= scope.name  %>
 		</h3>
 		<br>
-		<% scope.projects.each do |p| %>
- 			<%= render partial: "projects/project_card", locals: { project: p, scope: p.scope} %>
+		<% scope.streams.each do |p| %>
+ 			<%= render partial: "streams/stream_card", locals: { stream: p, scope: p.scope} %>
  		<% end %>
 		</div>
 <% end %>

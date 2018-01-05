@@ -2,9 +2,9 @@
    <div class="panel b">
       <div class="panel-heading">
          <div class="pull-right">
-            <%= render partial: "projects/project_status", locals: { project: project} %>
+            <%= render partial: "streams/stream_status", locals: { stream: stream} %>
          </div>
-         <h4 class="m0"><%= project.title %></h4>
+         <h4 class="m0"><%= stream.title %></h4>
          <small class="text-muted">
             <%= t(:Scope) %>: <%= scope.name %>
          </small>
@@ -16,12 +16,12 @@
          <tbody>
             <tr>
                <td>
-                  <% if project.updates.where(update_week: @this_week).size != 0 %>
-                     <%= render partial: "projects/project_card_updates_higher", locals: {update: project.updates.last} %>
+                  <% if stream.updates.where(update_week: @this_week).size != 0 %>
+                     <%= render partial: "streams/stream_card_updates_higher", locals: {update: stream.updates.last} %>
                   <% else %>
                      <%#= t(:no_updates_created) %>
-                     <%= link_to t(:Create) + " " + t(:Update), new_project_update_path(project, Update.new), class: "btn btn-default" %>
-                     <%#= link_to "Update Now", new_project_update_path(project, Update.new), class: "btn btn-default" %>
+                     <%= link_to t(:Create) + " " + t(:Update), new_stream_update_path(stream, Update.new), class: "btn btn-default" %>
+                     <%#= link_to "Update Now", new_stream_update_path(stream, Update.new), class: "btn btn-default" %>
                   <% end %>
                </td>
             </tr>
@@ -29,19 +29,19 @@
                <td>
                   <div class="media-box-body clearfix">
                     <strong class="media-box-heading text-secondary">
-                       <%= t(:project_chrono_progress) %><br>
+                       <%= t(:stream_chrono_progress) %><br>
                        <small class="text-muted">
                         <%= scope.start_date %>
                         |
                         <%= scope.end_date %>
                         </small>
                      </strong>
-                     <%= render partial: "projects/progress_bar", locals: {project: project} %>
+                     <%= render partial: "streams/progress_bar", locals: {stream: stream} %>
                   </div>
                   <div class="media-box-body clearfix">
                     <p class="mb-sm">
                       <small class="pull-right">
-                        <%= t(:Owner) %>: <%= project.owner.full_name %>
+                        <%= t(:Owner) %>: <%= stream.owner.full_name %>
                       </small>
                     </p>
                   </div>
@@ -52,12 +52,12 @@
       <!-- END higher update -->
    
       <!-- START lower update -->
-      <%# if project.updates.where(update_week: @this_week).size != 0 %>
+      <%# if stream.updates.where(update_week: @this_week).size != 0 %>
          <!-- <table class="table">
             <tbody>
                <tr>
                   <td>
-                     <%#= render partial: "projects/project_card_updates_lower", locals: {update: project.updates.last} %>
+                     <%#= render partial: "streams/stream_card_updates_lower", locals: {update: stream.updates.last} %>
                   </td>
                </tr>
             </tbody>
@@ -66,11 +66,11 @@
       <!-- END lower update -->
 
       <div class="panel-footer text-center">
-         <%= link_to project_path(project) do %>
+         <%= link_to stream_path(stream) do %>
             <button type="button" class="btn btn-default"><%= t(:Details) %></button>
          <% end %>
          <%# if current_user.admin %>
-            <%= link_to edit_project_path(project) do %>
+            <%= link_to edit_stream_path(stream) do %>
                <button type="button" class="btn btn-default"><%= t(:Edit) %></button>
             <% end %>
          <%# end %>

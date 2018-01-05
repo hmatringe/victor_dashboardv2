@@ -1,4 +1,4 @@
-<a href="<%= new_project_update_path [project, Update.new] %>" class="list-group-item">
+<a href="<%= new_stream_update_path [stream, Update.new] %>" class="list-group-item">
 	<div class="media-box">
 	   <!-- <div class="pull-left">
 	      <img src="<%#= image_path('angle/user/02.jpg') %>" alt="Image" class="media-box-object img-circle thumb32" />
@@ -7,9 +7,9 @@
 	   	
 		    <p class="mb-sm">
 		       <strong>
-		       <%= project.scope.name %>
+		       <%= stream.scope.name %>
 		       |
-		       <%= project.title %>
+		       <%= stream.title %>
 		       </strong>
 		    </p>  
 		</div>

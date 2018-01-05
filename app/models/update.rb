@@ -14,7 +14,7 @@
 #
 
 class Update < ApplicationRecord
-	belongs_to :project
+	belongs_to :stream
 
 	validates :update_week, presence: true, uniqueness: { scope: :project }
 	validates :main_progress, presence: true

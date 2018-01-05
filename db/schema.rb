@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219204212) do
+ActiveRecord::Schema.define(version: 20180105114857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,20 +24,6 @@ ActiveRecord::Schema.define(version: 20171219204212) do
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
-  create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.date "start_date"
-    t.date "end_date_forecast"
-    t.date "end_date_actual"
-    t.bigint "user_id"
-    t.bigint "scope_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["scope_id"], name: "index_projects_on_scope_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
-  end
-
   create_table "scopes", force: :cascade do |t|
     t.string "name"
     t.date "start_date"
@@ -48,16 +34,30 @@ ActiveRecord::Schema.define(version: 20171219204212) do
     t.integer "sort_weight"
   end
 
+  create_table "streams", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date_forecast"
+    t.date "end_date_actual"
+    t.bigint "user_id"
+    t.bigint "scope_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scope_id"], name: "index_streams_on_scope_id"
+    t.index ["user_id"], name: "index_streams_on_user_id"
+  end
+
   create_table "updates", force: :cascade do |t|
     t.string "update_week"
     t.string "progress_status"
     t.text "risks"
     t.text "next_steps"
-    t.bigint "project_id"
+    t.bigint "stream_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "main_progress"
-    t.index ["project_id"], name: "index_updates_on_project_id"
+    t.index ["stream_id"], name: "index_updates_on_stream_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20171219204212) do
 
   add_foreign_key "participants", "scopes"
   add_foreign_key "participants", "users"
-  add_foreign_key "projects", "scopes"
-  add_foreign_key "projects", "users"
-  add_foreign_key "updates", "projects"
+  add_foreign_key "streams", "scopes"
+  add_foreign_key "streams", "users"
+  add_foreign_key "updates", "streams"
 end

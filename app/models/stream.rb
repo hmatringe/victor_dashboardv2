@@ -14,7 +14,7 @@
 #  updated_at        :datetime         not null
 #
 
-class Project < ApplicationRecord
+class Stream < ApplicationRecord
   # en français: Chantier
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   belongs_to :scope
