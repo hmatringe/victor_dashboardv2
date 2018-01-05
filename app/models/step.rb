@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: scopes
+# Table name: steps
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -12,8 +12,8 @@
 #  sort_weight :integer
 #
 
-class Scope < ApplicationRecord
-	# en français: Projet
+class Step < ApplicationRecord
+	# en français: Étape
 	has_many :participants, dependent: :destroy
 	has_many :streams, dependent: :destroy
 

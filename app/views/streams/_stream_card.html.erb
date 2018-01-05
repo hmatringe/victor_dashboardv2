@@ -6,7 +6,7 @@
          </div>
          <h4 class="m0"><%= stream.title %></h4>
          <small class="text-muted">
-            <%= t(:Scope) %>: <%= scope.name %>
+            <%= t(:Step) %>: <%= step.name %>
          </small>
       </div>
       
@@ -31,9 +31,9 @@
                     <strong class="media-box-heading text-secondary">
                        <%= t(:stream_chrono_progress) %><br>
                        <small class="text-muted">
-                        <%= scope.start_date %>
+                        <%= step.start_date %>
                         |
-                        <%= scope.end_date %>
+                        <%= step.end_date %>
                         </small>
                      </strong>
                      <%= render partial: "streams/progress_bar", locals: {stream: stream} %>

@@ -7,7 +7,7 @@
 #  progress_status :string
 #  risks           :text
 #  next_steps      :text
-#  project_id      :integer
+#  stream_id       :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  main_progress   :text

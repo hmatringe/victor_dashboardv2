@@ -55,6 +55,6 @@ class StreamsController < ApplicationController
   end
 
   def stream_params
-    params.require(:stream).permit(:title, :description, :start_date, :end_date_forecast, :end_date_actual, :user_id, :scope_id)
+    params.require(:stream).permit(:title, :description, :start_date, :end_date_forecast, :end_date_actual, :user_id, :step_id)
   end
 end

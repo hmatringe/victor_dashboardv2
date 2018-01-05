@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :updates, only: [:index, :show], path: :mises_a_jour
   get "mises_a_jour_de_la_semaine", to: "updates#updates_of_the_week"
   get "mises_a_jour_de_la_semaine_derniere", to: "updates#updates_of_last_week"
-  resources :scopes, path: :projets
+  resources :steps, path: :projets
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

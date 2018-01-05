@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: projects
+# Table name: streams
 #
 #  id                :integer          not null, primary key
 #  title             :string
@@ -9,7 +9,7 @@
 #  end_date_forecast :date
 #  end_date_actual   :date
 #  user_id           :integer
-#  scope_id          :integer
+#  step_id           :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
@@ -17,7 +17,7 @@
 class Stream < ApplicationRecord
   # en français: Chantier
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
-  belongs_to :scope
+  belongs_to :step
   has_many :updates, dependent: :destroy
   validates :title, presence: true, uniqueness: true, length: { minimum: 6 }
   validates :description, presence: true, length: { minimum: 20 }

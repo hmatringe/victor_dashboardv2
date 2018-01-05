@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105114857) do
+ActiveRecord::Schema.define(version: 20180105122308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "participants", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "scope_id"
+    t.bigint "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["scope_id"], name: "index_participants_on_scope_id"
+    t.index ["step_id"], name: "index_participants_on_step_id"
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
-  create_table "scopes", force: :cascade do |t|
+  create_table "steps", force: :cascade do |t|
     t.string "name"
     t.date "start_date"
     t.date "end_date"
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20180105114857) do
     t.date "end_date_forecast"
     t.date "end_date_actual"
     t.bigint "user_id"
-    t.bigint "scope_id"
+    t.bigint "step_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["scope_id"], name: "index_streams_on_scope_id"
+    t.index ["step_id"], name: "index_streams_on_step_id"
     t.index ["user_id"], name: "index_streams_on_user_id"
   end
 
@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 20180105114857) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "participants", "scopes"
+  add_foreign_key "participants", "steps"
   add_foreign_key "participants", "users"
-  add_foreign_key "streams", "scopes"
+  add_foreign_key "streams", "steps"
   add_foreign_key "streams", "users"
   add_foreign_key "updates", "streams"
 end

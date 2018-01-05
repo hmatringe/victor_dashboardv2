@@ -1,0 +1,37 @@
+<div class="pull-right">
+	<%= link_to t(:Create) + " " + t(:Step), new_step_path, class: "btn btn-default btn-sm" %>
+</div>
+
+
+
+
+<h3><%= t(:Steps) %></h3>
+
+<div 
+	id="steps_chantiers_gantt_chart_div"
+	data-tasks="<%= @tasks.to_json %>"
+></div>
+
+<div 
+	id="steps_chantiers_gantt_chart_div2"
+	data-tasks="<%= @tasks.to_json %>"
+></div>
+
+
+<% @steps.each do |step| %>
+		<div class="row">
+		<h3>
+			<%= step.name  %>
+		</h3>
+		<br>
+		<% step.streams.each do |str| %>
+ 			<%= render partial: "streams/stream_card", locals: { stream: str, step: str.step} %>
+ 		<% end %>
+		</div>
+<% end %>
+
+
+<%= content_for	:head do %>
+	<%= render partial: "steps/steps_chantiers_gantt_chart" %>
+	<%#= render partial: "steps/steps_chantiers_gantt_chart2" %>
+<% end %>

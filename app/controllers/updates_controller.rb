@@ -4,12 +4,12 @@ class UpdatesController < ApplicationController
   
   def updates_of_the_week
     @updates = Update.where(update_week: @this_week)
-    @streams_without_updates = Stream.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
+    @streams_without_updates = Stream.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }.sort_by {|p| [p.step.name, p.title]}
   end
   
   def updates_of_last_week
     @updates = Update.where(update_week: @last_week)
-    @streams_without_updates = Stream.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
+    @streams_without_updates = Stream.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }.sort_by {|p| [p.step.name, p.title]}
   end
 
   def index

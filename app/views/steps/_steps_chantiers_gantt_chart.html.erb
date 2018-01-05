@@ -5,7 +5,7 @@
   google.charts.setOnLoadCallback(drawChart);
 
  	// preparing rows 
-  const chartElement = document.getElementById('scopes_chantiers_gantt_chart_div');
+  const chartElement = document.getElementById('steps_chantiers_gantt_chart_div');
 
 	// function valuesToArray(obj) {
 	//   return Object.keys(obj).map(function (key) { return obj[key]; });
@@ -48,7 +48,7 @@
       height: height
     };
 
-    var chart = new google.visualization.Gantt(document.getElementById('scopes_chantiers_gantt_chart_div'));
+    var chart = new google.visualization.Gantt(document.getElementById('steps_chantiers_gantt_chart_div'));
 
     chart.draw(data, options);
   }
