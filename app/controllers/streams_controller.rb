@@ -1,6 +1,6 @@
 class StreamsController < ApplicationController
   before_action :set_stream, only: [:show, :edit, :update, :destroy]
-  before_action :set_step, only: [:new, :create, :edit, :update]
+  before_action :set_step, only: [:new, :create]
   skip_before_action :authenticate_user!, only: :home
   
   def home
