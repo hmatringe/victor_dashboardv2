@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: projects
+# Table name: streams
 #
 #  id                :integer          not null, primary key
 #  title             :string
@@ -9,7 +9,7 @@
 #  end_date_forecast :date
 #  end_date_actual   :date
 #  user_id           :integer
-#  scope_id          :integer
+#  step_id           :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: scopes
+# Table name: steps
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -13,7 +13,7 @@
 #
 
 class Step < ApplicationRecord
-	# en français: Projet
+	# en français: Étape
 	has_many :participants, dependent: :destroy
 	has_many :streams, dependent: :destroy
 
