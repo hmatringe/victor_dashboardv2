@@ -1,8 +1,9 @@
 <%= simple_form_for	@step do |i| %>
-	<%= i.input :name %>
-	<%= i.input :sort_weight %>
-	<%= i.input :start_date %>
-	<%= i.input :end_date %>
-	<%= i.input :status, collection: %w( status1 status2 status3 ) %>
-	<%= i.submit "Submit" %>
+	<%= i.association :project, label: t("step.choose_project").capitalize %>
+	<%= i.input :name, label: t("step.name").capitalize %>
+	<%#= i.input :sort_weight, label: t("step.sort_weight").capitalize %>
+	<%#= i.input :start_date, label: t("step.start_date").capitalize %>
+	<%#= i.input :end_date, label: t("step.end_date").capitalize %>
+	<%#= i.input :status, collection: %w( status1 status2 status3 ), label: t("step.status").capitalize %>
+	<%= i.submit t(:Submit), class: "btn btn-primary" %>
 <% end %>

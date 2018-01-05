@@ -1,4 +1,4 @@
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript">
   google.charts.load('current', {'packages':['gantt']});
   // google.charts.setOnLoadCallback(buildRows);
@@ -22,6 +22,7 @@
 	    let task_formatted = valuesToArray(tasks[i])
 	    tasks_formatted.push(task_formatted)
 	}
+  console.log(tasks_formatted);
 
   function daysToMilliseconds(days) {
     return days * 24 * 60 * 60 * 1000;
@@ -41,8 +42,13 @@
     data.addColumn('string', 'Dependencies');
 
     data.addRows(tasks_formatted);
-
-		var height = data.getNumberOfRows() * 41 + 50;
+    
+    var minimumRows = 5
+    if (data.getNumberOfRows() < minimumRows) {
+      var height = minimumRows * 41 + 50;
+    } else {
+		  var height = data.getNumberOfRows() * 41 + 50; 
+    }
 
     var options = {
       height: height

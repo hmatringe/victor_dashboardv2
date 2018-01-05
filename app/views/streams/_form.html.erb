@@ -1,10 +1,10 @@
-<%= simple_form_for	@stream do |i| %>
+<%= simple_form_for	[@step,@stream] do |i| %>
 	<%= i.input :title, label: t("stream.title").capitalize %>
 	<%= i.input :description, label: t("stream.description").capitalize %>
 	<%= i.input :start_date, label: t("stream.start_date").capitalize %>
 	<%= i.input :end_date_forecast, label: t("stream.end_date_forecast").capitalize %>
 	<%= i.input :end_date_actual, include_blank: true, label: t("stream.end_date_actual").capitalize %>
 	<%= i.association :owner, label_method: :full_name_with_email, label: t(:Owner) %>
-	<%= i.association :step, label: t(:Step) %>
-	<%= i.submit t(:Submit) %>
+	<%#= i.association :step, label: t(:Step) %>
+	<%= i.submit t(:Submit), class: "btn btn-primary" %>
 <% end %>

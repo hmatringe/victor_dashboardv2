@@ -1,0 +1,4 @@
+<%= simple_form_for	@project do |i| %>
+	<%= i.input :name, label: t("project.name").capitalize %>
+	<%= i.submit t(:Submit), class: "btn btn-primary" %>
+<% end %>

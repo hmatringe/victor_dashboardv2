@@ -1,0 +1,44 @@
+<div class="pull-right">
+	<%= link_to t(:Create) + " " + t(:Step), new_step_path, class: "btn btn-default btn-sm" %>
+	<%= link_to t(:Create) + " " + t(:Project), new_project_path, class: "btn btn-default btn-sm" %>
+</div>
+<h3>
+	<%= t(:Projects) %>
+	<%= render partial: "layouts/partials/breadcrumbs" %>
+</h3>
+
+<div class="row">
+	<h3>
+		Timeline
+	</h3>
+</div>
+
+<div 
+	id="projects_timeline_chart_div"
+	data-projects="<%= @projects.to_json %>"
+></div>
+
+<% @projects.each do |project| %>
+		<div class="row">
+		<h3>
+			<%= project.name  %>
+		</h3>
+		<br>
+		<% project.steps.each do |step| %>
+ 			<%= render partial: "steps/step_card",
+ 			locals: { step: step, 
+ 								link: step_path(step)
+ 							} %>
+ 			
+ 		<% end %>
+		</div>
+<% end %>
+
+
+
+
+
+
+<%= content_for	:head do %>
+	<%= render partial: "projects/projects_timeline_chart" %>
+<% end %>

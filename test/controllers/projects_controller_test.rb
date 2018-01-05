@@ -6,11 +6,6 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get projects_show_url
-    assert_response :success
-  end
-
   test "should get new" do
     get projects_new_url
     assert_response :success
@@ -28,11 +23,6 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get update" do
     get projects_update_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get projects_destroy_url
     assert_response :success
   end
 
