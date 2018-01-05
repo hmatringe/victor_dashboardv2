@@ -11,6 +11,8 @@
 	         <h4>
 	         	<span class="circle circle-<%= update.progress_status_color %> circle-lg text-left"></span>
 	         	<%= update.project.title %>
+	         	|
+	         	<%= update.project.scope.name %>
 	         	</h4>
 	       </strong>
 	      <p class="mb-sm">
@@ -29,7 +31,7 @@
 	        <%= update.next_steps %>
 	      </p>
 	      <p class="mb-sm">
-	         <%= update.update_week %>
+	         <%#= update.update_week %>
 	      </p>
 	   </div>
 	</div>

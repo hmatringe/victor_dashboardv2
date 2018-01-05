@@ -2,27 +2,41 @@
 
 	<div class="col-lg-8">
 		<div class="panel b">
-		   <div class="panel-heading">
-		      <!-- <div class="pull-right label label-danger">5</div> -->
-		      <div class="pull-right label label-primary"><%= @updates.length %></div>
-		      <div class="panel-title"><%= t(:updates) %></div>
-		   </div>
-		   
-		   <div data-height="100%" data-scrollable="" class="list-group">
-		      
+			  <div class="panel-heading">
+			    <div class="pull-right label label-primary"><%= @updates.length %></div>
+		      <div class="panel-title">
+		      	<%= t(:updates) %>
+		      	<br>
+		      	<%= t(:updates_order) %>
+		      </div>
+    	  	
+    	  	<% if @updates.size == 0  %>
+	      	  <div class="panel-title">
+	      	  	<br>
+	      	  	<%= t(:no_update) %>
+			  		</div>
+	      	<% end %>
+	      	
+			  </div>
+			   
+  		  <div data-height="100%" data-scrollable="" class="list-group">
 		      <% @updates.each do |update|%>
-		         <%= render partial: "updates/updates_list_item", locals: { update: update} %>
+	          <%= render partial: "updates/updates_list_item", locals: { update: update} %>
 		      <% end %>
-		   </div>
-		   
-		</div>
+		   	</div>
+			</div>
 	</div>
 	<div class="col-lg-4">
 		<div class="panel b">
 		   <div class="panel-heading">
 		      <!-- <div class="pull-right label label-danger">5</div> -->
 		      <div class="pull-right label label-primary"></div>
-		      <div class="panel-title"><%= t(:projects_missing_update) %> <%= week %></div>
+		      <div class="panel-title">
+		      	<%= t(:projects_missing_update) %>
+		      	<%= week %>
+		      	<br>
+		      	<%= t(:projects_missing_update_order) %>
+	      	</div>
 		   </div>
 		   
 		   <div data-height="100%" data-scrollable="" class="list-group">
@@ -34,39 +48,4 @@
 		</div>
 	</div>
 	</div>
-
-
-
-		<!-- Button trigger modal -->
-		<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		  Modal example
-		</button> -->
-
-	<%= content_for	:modals do %>
-
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-		style="
-		padding-top: 50px;
-		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 1100; 
-		">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-		      </div>
-		      <div class="modal-body">
-		        <p>Whatever we want our beautiful dashboard to show us withouth navigating away! </p>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-		      </div>
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-
-	<% end %>
 </div>
