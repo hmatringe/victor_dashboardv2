@@ -30,10 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  project: "project"
-  Project: "Project"
-  projects: "projects"
-  Projects: "Projects"
+  stream: "project"
+  Stream: "Project"
+  streams: "projects"
+  Streams: "Projects"
   Scope: "Scope"
   Scopes: "Scopes"
   sign_in: "Sign in"
@@ -48,8 +48,8 @@ en:
   Updates: "Updates"
   updates_of_the_week: "Updates of the week"
   updates_of_last_week: "Updates of last week"
-  projects_missing_update: "Projects missing an update"
-  projects_missing_update_order: "(Scope | Project)"
+  streams_missing_update: "Projects missing an update"
+  streams_missing_update_order: "(Scope | Project)"
   this_week: "this week"
   last_week: "next week"
   back_to_this_week_updates: "Back to updates of the week"
@@ -73,8 +73,8 @@ en:
   actual: "actual"
   Owner: "Owner"
   Description: "Description"
-  # model Project
-  project:
+  # model Stream
+  stream:
     title: "title"
     description: "description"
     start_date: "start_date"
@@ -108,7 +108,7 @@ en:
   slight_delays: "slight delays"
   delayed: "delayed"
 
-  project_chrono_progress: "Project progression"
+  stream_chrono_progress: "Project progression"
 
 
 

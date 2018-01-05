@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  root to: 'projects#home'
-  # get "chantiers", to: 'projects#index'
-  resources :projects, path: :chantiers do
+  root to: 'streams#home'
+  # get "chantiers", to: 'streams#index'
+  resources :streams, path: :chantiers do
     resources :updates, only: [:new, :create, :edit, :update, :destroy], path: :mises_a_jour
   end
   resources :updates, only: [:index, :show], path: :mises_a_jour

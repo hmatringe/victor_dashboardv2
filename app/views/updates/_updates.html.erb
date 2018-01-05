@@ -32,16 +32,16 @@
 		      <!-- <div class="pull-right label label-danger">5</div> -->
 		      <div class="pull-right label label-primary"></div>
 		      <div class="panel-title">
-		      	<%= t(:projects_missing_update) %>
+		      	<%= t(:streams_missing_update) %>
 		      	<%= week %>
 		      	<br>
-		      	<%= t(:projects_missing_update_order) %>
+		      	<%= t(:streams_missing_update_order) %>
 	      	</div>
 		   </div>
 		   
 		   <div data-height="100%" data-scrollable="" class="list-group">
-	      <% @projects_without_updates.each do |project|%>
-         <%= render partial: "projects_missing_attributes_list", locals: { project: project } %>
+	      <% @streams_without_updates.each do |stream|%>
+         <%= render partial: "streams_missing_attributes_list", locals: { stream: stream } %>
 	      <% end %>
 		   </div>
 		   

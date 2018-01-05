@@ -7,7 +7,7 @@ Total: <%= @updates.size %> updates
 	<% @updates.each do |update| %>
 		<li>
 			<%= link_to update_path update do %>
-				<%= "update #{update.update_week} - progress: #{update.progress_status} - project: #{update.project.title}" %>
+				<%= "update #{update.update_week} - progress: #{update.progress_status} - stream: #{update.stream.title}" %>
 			<% end %>
 		</li>
 	<% end %>

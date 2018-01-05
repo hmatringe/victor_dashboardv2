@@ -6,8 +6,8 @@ class ScopesController < ApplicationController
     @tasks = []
     @scopes.each do |sc|
       @tasks << {
-        Task_ID: "Project - #{sc.name}",
-        Task_Name: "Project - #{sc.name}",
+        Task_ID: "Projet - #{sc.name}",
+        Task_Name: "Projet - #{sc.name}",
         Resource: sc.name,
         Start_Date: sc.start_date,
         End_Date: sc.end_date,
@@ -15,8 +15,8 @@ class ScopesController < ApplicationController
         Percent_Complete: sc.completion,
         Dependencies: nil
       }
-      if sc.projects
-        sc.projects.each do |p|
+      if sc.streams
+        sc.streams.each do |p|
           @tasks << {
             Task_ID: p.title,
             Task_Name: p.title,

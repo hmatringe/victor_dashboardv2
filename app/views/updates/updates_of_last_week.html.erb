@@ -1,5 +1,5 @@
 <div class="pull-right">
-	<%#= link_to "Create Update", new_project_update_path, class: "btn btn-default btn-sm" %>
+	<%#= link_to "Create Update", new_stream_update_path, class: "btn btn-default btn-sm" %>
 </div>
 <h3><%= t(:updates_of_last_week) %></h3>
 <h4 class="text-danger">
@@ -10,4 +10,4 @@
 
 	<%#= render partial: "tmp_index" %>
 
-	<%= render partial: "updates", locals: {updates: @updates, projects_without_updates: @projects_without_updates, week: t(:last_week)} %>
+	<%= render partial: "updates", locals: {updates: @updates, streams_without_updates: @streams_without_updates, week: t(:last_week)} %>

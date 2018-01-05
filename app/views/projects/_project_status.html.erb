@@ -1,7 +1,0 @@
-<% if project.updates.where(update_week: @this_week).size != 0 %>
-   <div class="label label-<%= project.updates.last.progress_status_color %>">
-   <%= t(project.updates.last.progress_status) %>
-   </div>
-<% else %>
-   <div class="label label-grey"><%= t(:no_weekly_update) %></div>
-<% end %>

@@ -1,15 +1,15 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:new, :create, :edit, :update]
+  before_action :set_stream, only: [:new, :create, :edit, :update]
   
   def updates_of_the_week
     @updates = Update.where(update_week: @this_week)
-    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
+    @streams_without_updates = Stream.all.reject { |p| p.updates.where(update_week: @this_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
   end
   
   def updates_of_last_week
     @updates = Update.where(update_week: @last_week)
-    @projects_without_updates = Project.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
+    @streams_without_updates = Stream.all.reject { |p| p.updates.where(update_week: @last_week).size != 0 }.sort_by {|p| [p.scope.name, p.title]}
   end
 
   def index
@@ -26,10 +26,10 @@ class UpdatesController < ApplicationController
 
   def create
     @update = Update.new(update_params)
-    @update.project = @project
+    @update.stream = @stream
     respond_to do |format|
       if @update.save
-        format.html { redirect_to controller: "projects", action: "index", notice: 'update was successfully created.' }
+        format.html { redirect_to controller: "streams", action: "index", notice: 'update was successfully created.' }
         # format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class UpdatesController < ApplicationController
     respond_to do |format|
       if @update.update(update_params)
 
-        format.html { redirect_to [@project,@update], notice: 'Update was successfully updated.' }
+        format.html { redirect_to [@stream,@update], notice: 'Update was successfully updated.' }
         # format.json { render :show, status: :ok, location: @update }
       else
         format.html { render :edit }
@@ -60,8 +60,8 @@ class UpdatesController < ApplicationController
 
   private
 
-  def set_project
-    @project = Project.find(params[:project_id])
+  def set_stream
+    @stream = Stream.find(params[:stream_id])
   end
   
   def set_update
@@ -69,6 +69,6 @@ class UpdatesController < ApplicationController
   end
 
   def update_params
-    params.require(:update).permit(:update_week, :progress_status, :main_progress, :risks, :next_steps, :project_id)
+    params.require(:update).permit(:update_week, :progress_status, :main_progress, :risks, :next_steps, :stream_id)
   end
 end
