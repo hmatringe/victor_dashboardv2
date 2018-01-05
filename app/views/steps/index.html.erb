@@ -1,12 +1,10 @@
 <div class="pull-right">
 	<%= link_to t(:Create) + " " + t(:Step), new_step_path, class: "btn btn-default btn-sm" %>
 </div>
-
-
-
-
-<h3><%= t(:Steps) %></h3>
-
+<h3>
+	<%#= t(:Steps) %>
+	<%= render partial: "layouts/partials/breadcrumbs" %>
+</h3>
 <div 
 	id="steps_chantiers_gantt_chart_div"
 	data-tasks="<%= @tasks.to_json %>"

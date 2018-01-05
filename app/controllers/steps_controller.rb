@@ -1,6 +1,8 @@
 class StepsController < ApplicationController
   before_action :set_step, only: [:show, :edit, :update, :destroy]
   def index
+    @path << { location: steps_path, name: "Étapes" }
+
     @steps ||= Step.all
     
     @tasks = []

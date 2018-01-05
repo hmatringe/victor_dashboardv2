@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  before_action :set_weeks
+  before_action :set_weeks, :set_path
 
   def set_weeks
     # @date_format_db = '%Y-%m-%d'
@@ -26,5 +26,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     # current_user_path # default
     streams_path
+  end
+
+  def set_path
+    @path = []
   end
 end
