@@ -19,7 +19,7 @@ class Step < ApplicationRecord
 	has_many :streams, dependent: :destroy
 	belongs_to :project
 
-	validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
+	validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
 	# validates :start_date, presence: true
 	# validates :end_date, presence: true
 	# validates :status, presence: true, inclusion: {in: %w( status1 status2 status3)}

@@ -20,7 +20,7 @@ class Stream < ApplicationRecord
   belongs_to :step
   has_many :updates, dependent: :destroy
   
-  validates :title, presence: true, uniqueness: true, length: { minimum: 6 }
+  validates :title, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :description, presence: true, length: { minimum: 20 }
   validates :start_date, presence: true
   validates :end_date_forecast, presence: true
