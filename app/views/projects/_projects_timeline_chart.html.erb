@@ -1,32 +1,47 @@
 <script>
 	google.charts.load('current', {'packages':['timeline']});
 	google.charts.setOnLoadCallback(drawChart);
+	
+  const timelineElement = document.getElementById('projects_timeline_chart_div');
+	const valuesToArray = obj => Object.keys(obj).map(key => obj[key])
+	const tasks_formatted = new Array()
+	
+	const tasks = JSON.parse(timelineElement.dataset.tasks);
+	for (var i = 0; i < tasks.length; i++) {
+	    tasks[i].Start = new Date(tasks[i].Start)
+	    tasks[i].End = new Date(tasks[i].End)
+	    let task_formatted = valuesToArray(tasks[i])
+	    tasks_formatted.push(task_formatted)
+	}
+  console.log("these are the tasks formatted");
+  console.log(tasks_formatted);
+
+
+
 	function drawChart() {
 	
-	  var container = document.getElementById('projects_timeline_chart_div');
-	  var chart = new google.visualization.Timeline(container);
+	  var chart = new google.visualization.Timeline(timelineElement);
 	  var dataTable = new google.visualization.DataTable();
 	  dataTable.addColumn({ type: 'string', id: 'Position' });
 	  dataTable.addColumn({ type: 'string', id: 'Name' });
 	  dataTable.addColumn({ type: 'string', role: 'tooltip' });
 	  dataTable.addColumn({ type: 'date', id: 'Start' });
 	  dataTable.addColumn({ type: 'date', id: 'End' });
-	  dataTable.addRows([
-	    [ 'SH2030', 'SH2030 A', 'A', new Date(2017, 0, 30), new Date(2017, 2, 4) ],
-	    [ 'SH2030', 'SH2030 B','B', new Date(2017, 2, 5), new Date(2017, 3, 4) ],
-	    [ 'SH2030', null,'B', new Date(2017, 3, 4), new Date(2017, 4, 4) ],
-	    [ 'SH2030', 'SH2030 C','C', new Date(2017, 4, 5), new Date(2017, 6, 4) ],
-	    [ 'SAP', 'SAP A', 'A', new Date(2017, 0, 21), new Date(2017, 3, 4)],
-	    [ 'SAP', 'SAP B', 'A', new Date(2017, 3, 4), new Date(2017, 7, 4)],
-	    [ 'INFRA', 'Infra A', 'A', new Date(2017, 4, 25), new Date(2017, 5, 22)],
-	  ]);
+	  dataTable.addRows(tasks_formatted);
+	  
+	  var minimumRows = 5
+    if (dataTable.getNumberOfRows() < minimumRows) {
+      var height = minimumRows * 41 + 50;
+    } else {
+		  var height = dataTable.getNumberOfRows() * 41 + 50; 
+    }
 
 	  var options = {
+      height: height,
 	    timeline: { 
 	    	groupByRowLabel: true,
-
 	    },
-	    colors: ['#A2B9C9', '#A2B9C9', '#2A5371', '#2A5371', '#B3C19F', '#56683A', '#F26419'],
+	    colors: <%= raw @colors %>,
 	  };
 
 	  chart.draw(dataTable, options);

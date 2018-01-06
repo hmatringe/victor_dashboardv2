@@ -38,16 +38,16 @@ s6 = Step.create name: "INFRA A", project: p3#, start_date: Date.parse("2017-12-
 
 
 p "creating streams"
-a = Stream.create title: "Chantier A", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s1
-b = Stream.create title: "Chantier B", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s1
-c = Stream.create title: "Chantier C", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s1
-d = Stream.create title: "Chantier D", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s2
-e = Stream.create title: "Chantier E", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s2
-f = Stream.create title: "Chantier F", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s3
-g = Stream.create title: "Chantier G", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s4
-h = Stream.create title: "Chantier H", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s4
-i = Stream.create title: "Chantier I", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s5
-j = Stream.create title: "Chantier J", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, step: s6
+a = Stream.create title: "Chantier A", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-06-04"), end_date_forecast: Date.parse("2017-06-30"), owner: frederic, step: s1
+b = Stream.create title: "Chantier B", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-07-01"), end_date_forecast: Date.parse("2017-09-01"), owner: frederic, step: s1
+c = Stream.create title: "Chantier C", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-01-01"), owner: frederic, step: s1
+d = Stream.create title: "Chantier D", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-09-01"), end_date_forecast: Date.parse("2017-10-25"), owner: frederic, step: s2
+e = Stream.create title: "Chantier E", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-10-26"), end_date_forecast: Date.parse("2017-11-24"), owner: frederic, step: s2
+f = Stream.create title: "Chantier F", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-07-01"), end_date_forecast: Date.parse("2017-11-25"), owner: frederic, step: s3
+g = Stream.create title: "Chantier G", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-03-01"), end_date_forecast: Date.parse("2017-06-25"), owner: frederic, step: s4
+h = Stream.create title: "Chantier H", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-06-26"), end_date_forecast: Date.parse("2018-08-25"), owner: frederic, step: s4
+i = Stream.create title: "Chantier I", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-08-01"), end_date_forecast: Date.parse("2018-08-10"), owner: frederic, step: s5
+j = Stream.create title: "Chantier J", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-11-01"), end_date_forecast: Date.parse("2018-02-01"), owner: frederic, step: s6
 #  old
 # stream1 = Stream.create title: "Opérations", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, scope: step1
 # stream2 = Stream.create title: "Ressources Humaines", description: "Loremp ipsum - description manquante", start_date: Date.parse("2017-12-04"), end_date_forecast: Date.parse("2018-06-03"), owner: frederic, scope: step1

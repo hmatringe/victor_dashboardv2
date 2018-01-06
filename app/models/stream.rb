@@ -27,7 +27,7 @@ class Stream < ApplicationRecord
   validate :start_date_anterior_or_equal_to_end_date_actual
   validate :start_date_anterior_or_equal_to_end_date_forecast
 
-  before_save :compute_step_dates
+  after_save :compute_step_dates
 
   def completion
 		if start_date == Date.today
@@ -72,12 +72,19 @@ class Stream < ApplicationRecord
   end
 
    def compute_step_dates
-     self.step.start_date = self.start_date
-     if end_date_actual
-       self.step.end_date = self.end_date_actual
-     else
-       self.step.end_date = self.end_date_forecast
-     end
-     self.step.save
+    @step_streams ||= step.streams
+    step.start_date = @step_streams.order("start_date ASC").first.start_date
+    
+    @step_streams_end_dates = @step_streams.each_with_object([]) do |st, a|
+      if st.end_date_actual
+        a << st.end_date_actual
+      else
+        a << st.end_date_forecast
+      end
+    end
+    
+    step.end_date = @step_streams_end_dates.max
+    step.save
+    # raise
   end
 end

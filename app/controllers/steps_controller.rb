@@ -67,8 +67,8 @@ class StepsController < ApplicationController
     @tasks = []
     steps.each do |step|
       @tasks << {
-        Task_ID: "Étape - #{step.name}",
-        Task_Name: "Étape - #{step.name}",
+        Task_ID: step.name,
+        Task_Name: step.name,
         Resource: step.name,
         Start_Date: step.start_date,
         End_Date: step.end_date,
@@ -95,8 +95,8 @@ class StepsController < ApplicationController
 
   def supply_gantt_chart_member(step)    
     @tasks = [{
-      Task_ID: "Étape - #{step.name}",
-      Task_Name: "Étape - #{step.name}",
+      Task_ID: step.name,
+      Task_Name: step.name,
       Resource: step.name,
       Start_Date: step.start_date,
       End_Date: step.end_date,

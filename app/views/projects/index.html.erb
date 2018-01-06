@@ -15,7 +15,7 @@
 
 <div 
 	id="projects_timeline_chart_div"
-	data-projects="<%= @projects.to_json %>"
+	data-tasks="<%= @tasks.to_json %>"
 ></div>
 
 <% @projects.each do |project| %>
@@ -25,11 +25,7 @@
 		</h3>
 		<br>
 		<% project.steps.each do |step| %>
- 			<%= render partial: "steps/step_card",
- 			locals: { step: step, 
- 								link: step_path(step)
- 							} %>
- 			
+ 			<%= render partial: "steps/step_card", locals: { step: step, link: step_path(step) } %>
  		<% end %>
 		</div>
 <% end %>

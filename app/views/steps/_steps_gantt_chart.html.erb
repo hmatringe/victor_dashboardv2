@@ -4,17 +4,10 @@
   // google.charts.setOnLoadCallback(buildRows);
   google.charts.setOnLoadCallback(drawChart);
 
- 	// preparing rows 
-  const chartElement = document.getElementById('steps_chantiers_gantt_chart_div');
-
-	// function valuesToArray(obj) {
-	//   return Object.keys(obj).map(function (key) { return obj[key]; });
-	// }
+  const chartElement = document.getElementById('steps_gantt_chart_div');
 	const valuesToArray = obj => Object.keys(obj).map(key => obj[key])
-	
-
 	const tasks_formatted = new Array()
-  
+
   const tasks = JSON.parse(chartElement.dataset.tasks);
 	for (var i = 0; i < tasks.length; i++) {
 	    tasks[i].Start_Date = new Date(tasks[i].Start_Date)
@@ -54,7 +47,7 @@
       height: height
     };
 
-    var chart = new google.visualization.Gantt(document.getElementById('steps_chantiers_gantt_chart_div'));
+    var chart = new google.visualization.Gantt(document.getElementById('steps_gantt_chart_div'));
 
     chart.draw(data, options);
   }
