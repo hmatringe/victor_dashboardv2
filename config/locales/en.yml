@@ -47,6 +47,7 @@ en:
   this_week: "this week"
   last_week: "next week"
   back_to_this_week_updates: "Back to updates of the week"
+  all_streams_updated: "All streams are up-to-date"
   # TODO duplicates Start
   Main_Progress: "Main Progress"
   Risks: "Risks"

@@ -16,6 +16,7 @@ fr:
   this_week: "cette semaine"
   last_week: "la semaine dernière"
   back_to_this_week_updates: "Retour vers les mises à jour de la semaine"
+  all_streams_updated: "Tous les chantiers sont mis à jour"
   # TODO duplicates Start
   Main_Progress: "Progrès principal"
   Risks: "Risques"
