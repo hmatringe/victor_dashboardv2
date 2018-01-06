@@ -30,12 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  stream: "project"
-  Stream: "Project"
-  streams: "projects"
-  Streams: "Projects"
-  Step: "Scope"
-  Steps: "Scopes"
   sign_in: "Sign in"
   sign_out: "Sign out"
   sign_in_message: "You must be logged in to access this dashboard"
@@ -53,6 +47,7 @@ en:
   this_week: "this week"
   last_week: "next week"
   back_to_this_week_updates: "Back to updates of the week"
+  all_streams_updated: "All streams are up-to-date"
   # TODO duplicates Start
   Main_Progress: "Main Progress"
   Risks: "Risks"
@@ -74,6 +69,27 @@ en:
   Owner: "Owner"
   Description: "Description"
   # model Stream
+  project: "project"
+  Project: "Project"
+  projects: "projects"
+  Projects: "Projects"
+  project:
+    name: "name"
+
+  Step: "Step"
+  Steps: "Steps"
+  step:
+    name: "name"
+    choose_project: "Choose project"
+    sort_weight: "sort_weight"
+    start_date: "start_date"
+    end_date: "end_date"
+    status: "status"
+  
+  stream: "stream"
+  Stream: "Stream"
+  streams: "streams"
+  Streams: "Streams"
   stream:
     title: "title"
     description: "description"

@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  
+
   root to: 'streams#home'
   # get "chantiers", to: 'streams#index'
-  resources :streams, path: :chantiers do
+  resources :streams, except: [:new, :create] ,path: :chantiers do
     resources :updates, only: [:new, :create, :edit, :update, :destroy], path: :mises_a_jour
   end
   resources :updates, only: [:index, :show], path: :mises_a_jour
   get "mises_a_jour_de_la_semaine", to: "updates#updates_of_the_week"
   get "mises_a_jour_de_la_semaine_derniere", to: "updates#updates_of_last_week"
-  resources :steps, path: :projets
+  resources :steps, path: "etapes" do 
+    resources :streams, only: [:new, :create]
+  end
+  resources :projects, path: :projets, only: [:index, :new, :create, :edit, :update]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

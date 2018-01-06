@@ -1,9 +1,11 @@
-<h3><%= t(:Step) %>: <%= @stream.step.name %>
-   <small>
-      <%= @stream.step.start_date %>
-      > 
-      <%= @stream.step.end_date %>
-   </small>
+<% if @stream.updates.where(update_week: @this_week).size == 0 %>
+<div class="pull-right">
+   <%= link_to t(:Create) + " " + t(:Update), new_stream_update_path(@stream, Update.new), class: "btn btn-default" %>
+</div>
+<% end %>
+
+<h3>
+   <%= render partial: "layouts/partials/breadcrumbs" %>
 </h3>
 <div class="row">
    
@@ -15,8 +17,7 @@
              	<%= render partial: "streams/stream_status", locals: { stream: @stream} %>
             </div>
             <h4 class="mv">
-               <span><%= t(:Stream) %>: <%= @stream.title %></span>
-               <span><%= t("stream.title") %></span>
+               <span><%= @stream.title %></span>
             </h4>
          </div>
          

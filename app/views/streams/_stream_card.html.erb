@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-6">
+<div class="col-lg-4 col-md-6 card">
    <div class="panel b">
       <div class="panel-heading">
          <div class="pull-right">
@@ -20,33 +20,33 @@
                      <%= render partial: "streams/stream_card_updates_higher", locals: {update: stream.updates.last} %>
                   <% else %>
                      <%#= t(:no_updates_created) %>
-                     <%= link_to t(:Create) + " " + t(:Update), new_stream_update_path(stream, Update.new), class: "btn btn-default" %>
+                     <%#= link_to t(:Create) + " " + t(:Update), new_stream_update_path(stream, Update.new), class: "btn btn-default" %>
                      <%#= link_to "Update Now", new_stream_update_path(stream, Update.new), class: "btn btn-default" %>
                   <% end %>
                </td>
             </tr>
-            <tr>
+            <!-- <tr>
                <td>
                   <div class="media-box-body clearfix">
                     <strong class="media-box-heading text-secondary">
-                       <%= t(:stream_chrono_progress) %><br>
+                       <%#= t(:stream_chrono_progress) %><br>
                        <small class="text-muted">
-                        <%= step.start_date %>
+                        <%#= step.start_date %>
                         |
-                        <%= step.end_date %>
+                        <%#= step.end_date %>
                         </small>
                      </strong>
-                     <%= render partial: "streams/progress_bar", locals: {stream: stream} %>
+                     <%#= render partial: "streams/progress_bar", locals: {stream: stream} %>
                   </div>
                   <div class="media-box-body clearfix">
                     <p class="mb-sm">
                       <small class="pull-right">
-                        <%= t(:Owner) %>: <%= stream.owner.full_name %>
+                        <%#= t(:Owner) %>: <%= stream.owner.full_name %>
                       </small>
                     </p>
                   </div>
                </td>
-            </tr>
+            </tr> -->
          </tbody>
       </table>
       <!-- END higher update -->
@@ -65,15 +65,14 @@
       <%# end %>
       <!-- END lower update -->
 
-      <div class="panel-footer text-center">
-         <%= link_to stream_path(stream) do %>
-            <button type="button" class="btn btn-default"><%= t(:Details) %></button>
-         <% end %>
-         <%# if current_user.admin %>
-            <%= link_to edit_stream_path(stream) do %>
-               <button type="button" class="btn btn-default"><%= t(:Edit) %></button>
-            <% end %>
+      <!-- <div class="panel-footer text-center">
+         <%#= link_to stream_path(stream) do %>
+            <button type="button" class="btn btn-default"><%#= t(:Details) %></button>
          <%# end %>
-      </div>
+         <%#= link_to edit_stream_path(stream) do %>
+            <button type="button" class="btn btn-default"><%#= t(:Edit) %></button>
+         <%# end %>
+      </div> -->
    </div>
+   <a class="card-link" href="<%= link %>" ></a>
 </div>

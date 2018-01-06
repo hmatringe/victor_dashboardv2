@@ -8,10 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
+class Project < ApplicationRecord
+	has_many :steps, dependent: :destroy
 
-class ProjectTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	validates :name, presence: true, uniqueness: :true, length: { minimum: 3 }
 end

@@ -40,8 +40,12 @@
 		   </div>
 		   
 		   <div data-height="100%" data-scrollable="" class="list-group">
-	      <% @streams_without_updates.each do |stream|%>
-         <%= render partial: "streams_missing_attributes_list", locals: { stream: stream } %>
+		    <% if @streams_without_updates.nil? %>
+	        	<%= render partial: "no_streams_missing_attributes_list" %>
+	      <% else %>
+		      <% @streams_without_updates.each do |stream|%>
+	        	<%= render partial: "streams_missing_attributes_list", locals: { stream: stream } %>
+		      <% end %>
 	      <% end %>
 		   </div>
 		   

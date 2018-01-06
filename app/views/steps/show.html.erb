@@ -1,23 +1,28 @@
-<h1>Steps#show</h1>
-<p>Find me in app/views/steps/show.html.erb</p>
+<div class="pull-right">
+	<%= link_to t(:Create) + " " + t(:Stream), new_step_stream_path([@step,Stream.new]), class: "btn btn-default btn-sm" %>
+</div>
+<h3>
+	<%= render partial: "layouts/partials/breadcrumbs" %>
+</h3>
 
-<ul>
-	<li>
-		<%= @step.name %>
-	</li>
-	<li>
-		<%= @step.start_date %>
-	</li>
-	<li>
-		<%= @step.end_date %>
-	</li>
-	<li>
-		<%= @step.status %>
-	</li>
-	<li>
-		<%= @step.sort_weight %>
-	</li>
-</ul>
+<div 
+	id="steps_gantt_chart_div"
+	data-tasks="<%= @tasks.to_json %>"
+></div>
 
-<br>
-<%= link_to "Update step", edit_step_path(@step) %>
+
+		<div class="row">
+		<h3>
+			<%= @step.name  %>
+		</h3>
+		<br>
+		<% @step.streams.each do |stream| %>
+ 			<%= render partial: "streams/stream_card", locals: { stream: stream, step: stream.step, link: stream_path(stream)} %>
+ 		<% end %>
+		</div>
+
+
+
+<%= content_for	:head do %>
+	<%= render partial: "steps/steps_gantt_chart" %>
+<% end %>

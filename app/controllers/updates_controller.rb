@@ -29,7 +29,8 @@ class UpdatesController < ApplicationController
     @update.stream = @stream
     respond_to do |format|
       if @update.save
-        format.html { redirect_to controller: "streams", action: "index", notice: 'update was successfully created.' }
+        # format.html { redirect_to controller: "streams", action: "show", notice: 'update was successfully created.' }
+        format.html { redirect_to stream_path(@stream) }
         # format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
@@ -46,7 +47,8 @@ class UpdatesController < ApplicationController
     respond_to do |format|
       if @update.update(update_params)
 
-        format.html { redirect_to [@stream,@update], notice: 'Update was successfully updated.' }
+        # format.html { redirect_to [@stream,@update], notice: 'Update was successfully updated.' }
+        format.html { redirect_to stream_path(@stream) }
         # format.json { render :show, status: :ok, location: @update }
       else
         format.html { render :edit }

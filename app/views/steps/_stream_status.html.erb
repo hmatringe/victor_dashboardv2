@@ -1,0 +1,10 @@
+<% if stream.updates.where(update_week: @this_week).size != 0 %>
+   <div class="label label-<%= stream.updates.last.progress_status_color %>">
+   <%= stream.title %>
+   </div>
+<% else %>
+   <div class="label label-grey">
+   	<%= stream.title %>
+   </div>
+<% end %>
+&nbsp;

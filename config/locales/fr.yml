@@ -1,10 +1,4 @@
 fr: 
-  stream: "chantier"
-  Stream: "Chantier"
-  streams: "chantiers"
-  Streams: "Chantiers"
-  Step: "Étape"
-  Steps: "Étapes"
   sign_in: "S'identifier"
   sign_out: "Se déconnecter"
   sign_in_message: "Vous devez vous identifier pour accéder à ce dashboard."
@@ -22,6 +16,7 @@ fr:
   this_week: "cette semaine"
   last_week: "la semaine dernière"
   back_to_this_week_updates: "Retour vers les mises à jour de la semaine"
+  all_streams_updated: "Tous les chantiers sont mis à jour"
   # TODO duplicates Start
   Main_Progress: "Progrès principal"
   Risks: "Risques"
@@ -42,7 +37,28 @@ fr:
   actual: "réel"
   Owner: "Responsable"
   Description: "Description"
-  # model Stream
+  # models
+  project: "projet"
+  Project: "Projet"
+  projects: "projets"
+  Projects: "Projets"
+  project:
+    name: "nom"
+
+  Step: "Étape"
+  Steps: "Étapes"
+  step:
+    name: "nom"
+    choose_project: "Choisir le projet"
+    sort_weight: "pondération tri"
+    start_date: "date de début"
+    end_date: "date de fin"
+    status: "statut"
+
+  stream: "chantier"
+  Stream: "Chantier"
+  streams: "chantiers"
+  Streams: "Chantiers"
   stream:
     title: "titre"
     description: "description"
@@ -50,11 +66,11 @@ fr:
     end_date_forecast: "date de fin estimée"
     end_date_actual: "date de fin réelle"
   update:
-      update_week: "semaine de la mise jour"
-      main_progress: "progrès principal"
-      progress_status: "Statut de progression"
-      risks: "risques"
-      next_steps: "prochaines étapes"
+    update_week: "semaine de la mise jour"
+    main_progress: "progrès principal"
+    progress_status: "Statut de progression"
+    risks: "risques"
+    next_steps: "prochaines étapes"
   # devise
   sign_up: "S'enregistrer"  
   log_in: "S'identifier"  

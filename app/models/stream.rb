@@ -19,12 +19,15 @@ class Stream < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   belongs_to :step
   has_many :updates, dependent: :destroy
-  validates :title, presence: true, uniqueness: true, length: { minimum: 6 }
+  
+  validates :title, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :description, presence: true, length: { minimum: 20 }
   validates :start_date, presence: true
   validates :end_date_forecast, presence: true
   validate :start_date_anterior_or_equal_to_end_date_actual
   validate :start_date_anterior_or_equal_to_end_date_forecast
+
+  after_save :compute_step_dates
 
   def completion
 		if start_date == Date.today
@@ -66,5 +69,22 @@ class Stream < ApplicationRecord
     else
       "aucune mise à jour"
     end
+  end
+
+   def compute_step_dates
+    @step_streams ||= step.streams
+    step.start_date = @step_streams.order("start_date ASC").first.start_date
+    
+    @step_streams_end_dates = @step_streams.each_with_object([]) do |st, a|
+      if st.end_date_actual
+        a << st.end_date_actual
+      else
+        a << st.end_date_forecast
+      end
+    end
+    
+    step.end_date = @step_streams_end_dates.max
+    step.save
+    # raise
   end
 end

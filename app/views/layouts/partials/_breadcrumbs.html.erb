@@ -1,0 +1,15 @@
+<% if @path.any? %>
+	<ol class="breadcrumb">
+		<% @path.each do |path| %>
+			<% if path[:location] %>
+				<li>
+					<a href="<%= path[:location] %>"><%= path[:name] %></a>
+				</li>
+			<% else %>
+				<li class="active">
+					<%= path[:name] %>
+				</li>
+			<% end %>
+	  <% end %>
+	</ol>
+<% end %>
