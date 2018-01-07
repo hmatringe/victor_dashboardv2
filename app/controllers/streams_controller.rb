@@ -26,7 +26,7 @@ class StreamsController < ApplicationController
     @stream
     respond_to do |format|
       if @stream.save
-        format.html { redirect_to @stream, notice: @stream.name + t(:creation_successful) }
+        format.html { redirect_to @stream, notice: @stream.title + t(:creation_successful) }
         # format.json { render :show, status: :created, location: @stream }
       else
         format.html { render :new }
@@ -41,7 +41,7 @@ class StreamsController < ApplicationController
   def update
     respond_to do |format|
       if @stream.update(stream_params)
-        format.html { redirect_to @stream, notice: @stream.name + t(:update_successful) }
+        format.html { redirect_to @stream, notice: @stream.title + t(:update_successful) }
         # format.json { render :show, status: :ok, location: @stream }
       else
         format.html { render :edit }
