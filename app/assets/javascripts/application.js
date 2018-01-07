@@ -13,7 +13,7 @@
 
 
 $(function() {
-   $('#flash').delay(500).fadeIn('normal', function() {
-      $(this).delay(500).fadeOut();
+   $('#flash').delay(1000).fadeIn('normal', function() {
+      $(this).delay(1000).fadeOut();
    });
 });

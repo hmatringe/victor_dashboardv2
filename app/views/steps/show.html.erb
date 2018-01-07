@@ -14,6 +14,7 @@
 		<div class="row">
 		<h3>
 			<%= @step.name  %>
+			<%= link_to t(:Edit), edit_step_path(@step), class: "btn btn-default btn-sm" %>
 		</h3>
 		<br>
 		<% @step.streams.each do |stream| %>

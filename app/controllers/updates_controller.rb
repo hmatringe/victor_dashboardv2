@@ -1,6 +1,6 @@
 class UpdatesController < ApplicationController
-  before_action :set_update, only: [:show, :edit, :update, :destroy]
   before_action :set_stream, only: [:new, :create, :edit, :update]
+  before_action :set_update, only: [:show, :destroy,:edit, :update]
   
   def updates_of_the_week
     @updates = Update.where(update_week: @this_week)
@@ -30,7 +30,8 @@ class UpdatesController < ApplicationController
     respond_to do |format|
       if @update.save
         # format.html { redirect_to controller: "streams", action: "show", notice: 'update was successfully created.' }
-        format.html { redirect_to stream_path(@stream) }
+        format.html { redirect_to stream_path(@stream), notice: t(:Update) + t(:creation_successful) }
+
         # format.json { render :show, status: :created, location: @update }
       else
         format.html { render :new }
@@ -48,7 +49,7 @@ class UpdatesController < ApplicationController
       if @update.update(update_params)
 
         # format.html { redirect_to [@stream,@update], notice: 'Update was successfully updated.' }
-        format.html { redirect_to stream_path(@stream) }
+        format.html { redirect_to stream_path(@stream), notice: t(:Update) + t(:update_successful) }
         # format.json { render :show, status: :ok, location: @update }
       else
         format.html { render :edit }

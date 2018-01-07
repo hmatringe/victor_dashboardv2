@@ -22,6 +22,10 @@
 		<div class="row">
 		<h3>
 			<%= project.name  %>
+			<%= link_to t(:Edit), edit_project_path(project), class: "btn btn-default btn-sm" %>
+			<%#= link_to edit_project_path(project) do %>
+				<!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+			<%# end %>
 		</h3>
 		<br>
 		<% project.steps.each do |step| %>

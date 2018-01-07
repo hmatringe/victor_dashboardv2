@@ -6,13 +6,13 @@ fr:
   hello: "Bonjour"
   Update: "Mise à jour"
   updates: "Mises à jour"
-  updates_order: "(Chantier | Projet)"
+  updates_order: "(Chantier | Étape)"
   no_update: "Aucune mise à jour"
   Updates: "Mises à jour"
   updates_of_the_week: "Mises à jour de la semaine"
   updates_of_last_week: "Mises à jour de la semaine dernière"
   streams_missing_update: "Chantiers sans mise à jour"
-  streams_missing_update_order: "(Projet | Chantier)"
+  streams_missing_update_order: "(Étape | Chantier)"
   this_week: "cette semaine"
   last_week: "la semaine dernière"
   back_to_this_week_updates: "Retour vers les mises à jour de la semaine"
@@ -46,7 +46,9 @@ fr:
     name: "nom"
 
   Step: "Étape"
+  step_lower: "étape"
   Steps: "Étapes"
+  steps_lower: "étapes"
   step:
     name: "nom"
     choose_project: "Choisir le projet"
@@ -77,6 +79,9 @@ fr:
   forgot_password?: "Mot de passe oublié?"  
   send_me_password_instructions: "Envoyer les instructions pour réinitialiser le mot de passe"  
 
+  # notices
+  update_successful: " : mise à jour effectuée."
+  creation_successful: " : création effectuée."
 
   # forms
   New_male: "Nouveau"

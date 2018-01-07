@@ -80,7 +80,7 @@
          <div data-height="100%" data-scrollable="" class="list-group">
             
             <% @stream.updates.sort_by(&:created_at).reverse.each do |update|%>
-               <%= render partial: "stream_details_updates_list_item", locals: { update: update} %>
+               <%= render partial: "stream_details_updates_list_item", locals: { update: update, stream: @stream} %>
             <% end %>
          </div>
          

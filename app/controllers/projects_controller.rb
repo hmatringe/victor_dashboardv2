@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: [:edit, :update, :destroy]
+
   def index
-    # @path << { location: projects_path, name: "Projets" }
     @projects = Project.all
     supply_timeline_collection(@projects)
   end
@@ -10,15 +11,43 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @project = Project.new(project_params)
+    
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to projects_path, notice: @project.name + t(:creation_successful) }
+        # format.json { render :show, status: :ok, location: @step }
+      else
+        format.html { render :new }
+        # format.json { render json: @step.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
   end
 
   def update
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html { redirect_to projects_path, notice: @project.name + t(:update_successful) }
+        # format.json { render :show, status: :ok, location: @step }
+      else
+        format.html { render :edit }
+        # format.json { render json: @step.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
   private
+
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+  def project_params
+    params.require(:project).permit(:name)
+  end
 
   def supply_timeline_collection(projects)
     @colors = []
@@ -37,31 +66,5 @@ class ProjectsController < ApplicationController
         @colors << resource_color
       end
     end    
-    # steps.each do |step|
-    #   @tasks << {
-    #     Task_ID: "Étape - #{step.name}",
-    #     Task_Name: "Étape - #{step.name}",
-    #     Resource: step.name,
-    #     Start_Date: step.start_date,
-    #     End_Date: step.end_date,
-    #     Duration: nil,
-    #     Percent_Complete: 100,
-    #     Dependencies: nil
-    #   }
-    #   if step.streams
-    #     step.streams.each do |p|
-    #       @tasks << {
-    #         Task_ID: p.title,
-    #         Task_Name: p.title,
-    #         Resource: step.name,
-    #         Start_Date: p.start_date,
-    #         End_Date: p.end_date_actual || p.end_date_forecast,
-    #         Duration: nil,
-    #         Percent_Complete: p.completion,
-    #         Dependencies: nil
-    #       }   
-    #     end
-    #   end
-    # end
   end
 end
