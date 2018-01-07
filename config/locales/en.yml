@@ -77,7 +77,9 @@ en:
     name: "name"
 
   Step: "Step"
+  step_lower: "step"
   Steps: "Steps"
+  steps_lower: "steps"
   step:
     name: "name"
     choose_project: "Choose project"
@@ -107,6 +109,10 @@ en:
   log_in: "Log in"  
   forgot_password?: "Forgot your password?"  
   send_me_password_instructions: "Send me reset password instructions"  
+
+  # notices
+  update_successful: ": updated successfully."
+  creation_successful: ": created successfully."
 
   # forms
   New_male: "New"

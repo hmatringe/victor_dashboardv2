@@ -46,7 +46,9 @@ fr:
     name: "nom"
 
   Step: "Étape"
+  step_lower: "étape"
   Steps: "Étapes"
+  steps_lower: "étapes"
   step:
     name: "nom"
     choose_project: "Choisir le projet"
@@ -77,6 +79,9 @@ fr:
   forgot_password?: "Mot de passe oublié?"  
   send_me_password_instructions: "Envoyer les instructions pour réinitialiser le mot de passe"  
 
+  # notices
+  update_successful: " : mise à jour effectuée."
+  creation_successful: " : création effectuée."
 
   # forms
   New_male: "Nouveau"
